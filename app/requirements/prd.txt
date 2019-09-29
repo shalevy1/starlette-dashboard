@@ -1,0 +1,12 @@
+aiofiles==0.4.0
+aiosqlite==0.10.0
+alembic==1.0.11
+asyncpg==0.18.3
+databases==0.2.5
+gunicorn==19.9.0 # Change from Empty Version in requirements.txt
+jinja2==2.10.1
+loguru==0.3.2
+requests==2.22.0
+starlette==0.12.8 # Change from 0.12.7
+starlette-auth-toolkit==0.5.0 # Change from Empty Version in requirements.txt
+uvicorn==0.8.6
