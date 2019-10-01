@@ -140,13 +140,25 @@ async def error(request):
     raise RuntimeError("Oh no")
 
 
+
+@app.exception_handler(403)
+async def not_found(request, exc):
+    print(request, exc)
+    """
+    Return an HTTP 403 page.
+    """
+    template = "/error/403.html"
+    context = {"request": request}
+    return templates.TemplateResponse(template, context, status_code=403)
+
+
 @app.exception_handler(404)
 async def not_found(request, exc):
     print(request, exc)
     """
     Return an HTTP 404 page.
     """
-    template = "error/404.html"
+    template = "/error/404.html"
     context = {"request": request}
     return templates.TemplateResponse(template, context, status_code=404)
 
@@ -157,7 +169,7 @@ async def server_error(request, exc):
     """
     Return an HTTP 500 page.
     """
-    template = "error/500.html"
+    template = "/error/500.html"
     context = {"request": request}
     return templates.TemplateResponse(template, context, status_code=500)
 
