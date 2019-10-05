@@ -91,7 +91,7 @@ python3 -m pytest
     - [ ] [SonarCloud](https://sonarcloud.io)
     - [ ] [Github Actions](https://github.com/features/actions) found in .github/workflow/actions
         - [x] tests - matrix run of Python 3.6 and 3.7
-            - [x] CodeCove.io upload
+            - [ ] CodeCove.io upload
         - [ ] docker-rc - docker build and push when pull request approved for release-candidate branch (calendar version - rc)
         - [ ] docker-master - docker build and push when pull request approved for master branch (calender version and latest)
         - [ ] ensure docker build only happens after pull_request approved and merged into higher branch
