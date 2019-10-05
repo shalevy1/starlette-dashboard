@@ -19,11 +19,11 @@ SonarCloud:
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=devsetgo_starlette-dashboard&metric=bugs)](https://sonarcloud.io/dashboard?id=devsetgo_starlette-dashboard)
 
 <a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg">
-# Starlette - SRTDashboard Template
+# Starlette - Dashboard Template (Alpha code)
 Note: The template has ~2900 issues according to SonarCloud
-Utilizing Starlette to render the [SRTDashboard](https://github.com/devsetgo/srtdash-admin-dashboard) admin template. This is a basic example to be used as the base/skeleton/template for Starlette applciations.
+Utilizing Starlette to render the [Gentelella template](https://github.com/devsetgo/gentelella) admin template. This is a basic example to be used as the base/skeleton/template for Starlette applciations.
 
-![Starlette Dashboard](screenshots/image_1.PNG) - in progress
+![Starlette Dashboard](screenshots/image_1.PNG)
 
 ### Use it
 - git clone https://github.com/devsetgo/starlette-dashboard
@@ -73,12 +73,11 @@ python3 -m pytest
 
 ## TODO
 
-- [x] Refactor by endpoint (sample, user, etc..)
-- [x] Create tests
-    - [x] Minimum of 80%
+- [ ] Create tests
+    - [ ] Minimum of 80%
     - [ ] Exception Testing
     - [ ] Mock [requests](https://2.python-requests.org/en/master/) call
-- [x] Better organization
+- [ ] Better organization
     - [ ] Use of Endpoints (equivalent to Flask Blueprints)
 - [ ] Configuration Scripts
 
@@ -88,15 +87,14 @@ python3 -m pytest
 
 - [x] Gunicorn/Uvicorn configuration
 - [x] Logging (using [Loguru](https://github.com/Delgan/loguru))
-- [X] Setup CI/CD Pipeline for test and deployment
-    - ~~[X] [Travis-CI](https://travis-ci.org)~~ ***replaced by Github Actions***
-    - [X] [SonarCloud](https://sonarcloud.io)
-    - [x] [Github Actions](https://github.com/features/actions) found in .github/workflow/actions
+- [ ] Setup CI/CD Pipeline for test and deployment
+    - [ ] [SonarCloud](https://sonarcloud.io)
+    - [ ] [Github Actions](https://github.com/features/actions) found in .github/workflow/actions
         - [x] tests - matrix run of Python 3.6 and 3.7
             - [x] CodeCove.io upload
-        - [x] docker-rc - docker build and push when pull request approved for release-candidate branch (calendar version - rc)
-        - [x] docker-master - docker build and push when pull request approved for master branch (calender version and latest)
-        - [x] ensure docker build only happens after pull_request approved and merged into higher branch
+        - [ ] docker-rc - docker build and push when pull request approved for release-candidate branch (calendar version - rc)
+        - [ ] docker-master - docker build and push when pull request approved for master branch (calender version and latest)
+        - [ ] ensure docker build only happens after pull_request approved and merged into higher branch
 - [ ] [Twelve Factor App](https://12factor.net/) ready
 - [ ] Build a [cookiecutter](https://github.com/audreyr/cookiecutter) template for
 - [ ] Add code comments
