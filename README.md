@@ -1,33 +1,32 @@
-<!-- ![image](https://img.shields.io/badge/calver-YYYY.MM.DD-22bfda.svg "CalVer")
-![image](https://travis-ci.org/devsetgo/starlette-SRTDashboard.svg "Build Status")
-![image](coverage.svg "Code Coverage") -->
 Python:
+
 ![image](https://img.shields.io/badge/calver-YYYY.MM.DD-22bfda.svg "CalVer")
 <a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg">
 [![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)](https://www.python.org/downloads/release/python-360/)
 [![Python 3.7](https://img.shields.io/badge/python-3.7-blue.svg)](https://www.python.org/downloads/release/python-370/)
 
 CI/CD Pipeline:
-[![codecov](https://codecov.io/gh/devsetgo/starlette-SRTDashboard/branch/master/graph/badge.svg)](https://codecov.io/gh/devsetgo/starlette-SRTDashboard)
-[![Actions Status](https://github.com/devsetgo/starlette-SRTDashboard/workflows/Run%20Tests/badge.svg)](https://github.com/devsetgo/starlette-SRTDashboard/actions)
-[![Actions Status](https://github.com/devsetgo/starlette-SRTDashboard/workflows/Docker%20Latest/badge.svg)](https://github.com/devsetgo/starlette-SRTDashboard/actions)
 
+[![codecov](https://codecov.io/gh/devsetgo/starlette-dashboard/branch/master/graph/badge.svg)](https://codecov.io/gh/devsetgo/starlette-dashboard)
+[![Actions Status](https://github.com/devsetgo/starlette-dashboard/workflows/Run%20Tests/badge.svg)](https://github.com/devsetgo/starlette-dashboard/actions)
+[![Actions Status](https://github.com/devsetgo/starlette-dashboard/workflows/Docker%20Latest/badge.svg)](https://github.com/devsetgo/starlette-dashboard/actions)
 
 SonarCloud:
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=devsetgo_starlette-SRTDashboard&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=devsetgo_starlette-SRTDashboard)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=devsetgo_starlette-SRTDashboard&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=devsetgo_starlette-SRTDashboard)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=devsetgo_starlette-SRTDashboard&metric=alert_status)](https://sonarcloud.io/dashboard?id=devsetgo_starlette-SRTDashboard)
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=devsetgo_starlette-SRTDashboard&metric=bugs)](https://sonarcloud.io/dashboard?id=devsetgo_starlette-SRTDashboard)
+
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=devsetgo_starlette-dashboard&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=devsetgo_starlette-dashboard)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=devsetgo_starlette-dashboard&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=devsetgo_starlette-dashboard)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=devsetgo_starlette-dashboard&metric=alert_status)](https://sonarcloud.io/dashboard?id=devsetgo_starlette-dashboard)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=devsetgo_starlette-dashboard&metric=bugs)](https://sonarcloud.io/dashboard?id=devsetgo_starlette-dashboard)
 
 <a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg">
 # Starlette - SRTDashboard Template
 Note: The template has ~2900 issues according to SonarCloud
 Utilizing Starlette to render the [SRTDashboard](https://github.com/devsetgo/srtdash-admin-dashboard) admin template. This is a basic example to be used as the base/skeleton/template for Starlette applciations.
 
-![Starlette SRTDashboard](screenshots/image_1.PNG)
+![Starlette Dashboard](screenshots/image_1.PNG) - in progress
 
 ### Use it
-- git clone https://github.com/devsetgo/starlette-SRTDashboard
+- git clone https://github.com/devsetgo/starlette-dashboard
 - create a virtualenv on linux or Windows Subsystem Linux
 
 #### Run APP
@@ -48,7 +47,7 @@ UVICORN
 
 Docker
 ~~~~
-    Docker: docker pull mikeryan56/starlette-srtdashboard:latest (not implemented)
+    Docker: docker pull mikeryan56/starlette-dashboard:latest (not implemented)
 ~~~~
 
 #### Run Tests
@@ -115,8 +114,9 @@ python3 -m pytest
   - [ ] Explantion of Configuration
 
 ### Screenshots
-![Starlette SRTDashboard](screenshots/image_1.PNG)
+coming soon
+<!-- ![Starlette SRTDashboard](screenshots/image_1.PNG)
 ![Starlette SRTDashboard](screenshots/image_2.PNG)
 ![Starlette SRTDashboard](screenshots/image_3.PNG)
 ![Starlette SRTDashboard](screenshots/image_4.PNG)
-![Starlette SRTDashboard](screenshots/image_5.PNG)
+![Starlette SRTDashboard](screenshots/image_5.PNG) -->
