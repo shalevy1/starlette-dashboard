@@ -3,6 +3,7 @@ import datetime
 import os
 import sys
 import time
+import uuid
 import unittest
 from unittest import mock
 import requests
@@ -26,7 +27,7 @@ class Test(unittest.TestCase):
 
     def test_cards(self):
         client = TestClient(app)
-        response = client.get("/example/cards")
+        response = client.get("/example/form")
         assert response.status_code == 200
 
     def test_login(self):
@@ -35,8 +36,12 @@ class Test(unittest.TestCase):
         assert response.status_code == 200
 
     def test_404(self):
+        uid = uuid.uuid1()
+        uid_str = str(uid)
+        url = f"/whale-{uid_str}"
+
         client = TestClient(app)
-        response = client.get("/beluga-whale-knees")
+        response = client.get(url)
         assert response.status_code == 404
 
     # TODO: determine why exceptions are not being tested properly
