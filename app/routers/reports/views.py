@@ -20,6 +20,7 @@ from starlette.templating import Jinja2Templates
 
 from com_lib.file_functions import open_json
 
+
 @app.route("/example/report-task")
 async def report_task(request):
     try:

@@ -69,6 +69,7 @@ async def homepage(request):
     except HTTPException as e:
         logger.critical(e)
 
+
 @app.route("/login")
 async def login(request):
     try:
@@ -86,7 +87,7 @@ async def login(request):
 @app.route("/example/report-task")
 async def report_task(request):
     try:
-        obj = open_json('task.json')
+        obj = open_json("task.json")
         logger.info(f"page accessed: login")
 
         context = {"request": request, "obj": obj}
@@ -95,6 +96,7 @@ async def report_task(request):
         return templates.TemplateResponse(template, context)
     except HTTPException as e:
         logger.critical(e)
+
 
 @app.route("/example/{page}")
 async def example_pages(request):
@@ -138,7 +140,6 @@ async def error(request):
     An example error. Switch the `debug` setting to see either tracebacks or 500 pages.
     """
     raise RuntimeError("Oh no")
-
 
 
 @app.exception_handler(403)
