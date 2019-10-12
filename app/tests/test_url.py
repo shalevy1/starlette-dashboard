@@ -27,12 +27,12 @@ class Test(unittest.TestCase):
 
     def test_cards(self):
         client = TestClient(app)
-        response = client.get("/example/form")
+        response = client.get("/pages/forms-basic")
         assert response.status_code == 200
 
     def test_login(self):
         client = TestClient(app)
-        response = client.get("/example/login")
+        response = client.get("/pages/page-login")
         assert response.status_code == 200
 
     def test_404(self):
@@ -58,7 +58,7 @@ class Test(unittest.TestCase):
     def test_cards_error(self):
         client = TestClient(app, raise_server_exceptions=False)
         m = mock.Mock()
-        m.side_effect = Exception(client.get("/example/cards"))
+        m.side_effect = Exception(client.get("/pages/forms-basic"))
         try:
             m()
         except Exception:

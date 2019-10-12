@@ -18,10 +18,13 @@ SonarCloud:
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=devsetgo_starlette-dashboard&metric=alert_status)](https://sonarcloud.io/dashboard?id=devsetgo_starlette-dashboard)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=devsetgo_starlette-dashboard&metric=bugs)](https://sonarcloud.io/dashboard?id=devsetgo_starlette-dashboard)
 
-<a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg">
-# Starlette - Dashboard Template (Alpha code)
-Note: The template has ~2900 issues according to SonarCloud
-Utilizing Starlette to render the [Gentelella template](https://github.com/devsetgo/gentelella) admin template. This is a basic example to be used as the base/skeleton/template for Starlette applciations.
+<a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
+
+# Starlette - Dashboard Template (pre-release)
+
+Note: The template has thousands of issues according to SonarCloud. All are due to template issues and issues within JavaScript for UI dependencies. Working on determining a way to solve these issues.
+
+Utilizing Starlette to render the [Sufee Admin](https://github.com/devsetgo/sufee-admin-dashboard) template. This is a basic example to be used as the base/skeleton/template for Starlette applciations.
 
 ![Starlette Dashboard](screenshots/image_1.PNG)
 
@@ -113,8 +116,8 @@ python3 -m pytest
 
 ### Screenshots
 coming soon
-<!-- ![Starlette SRTDashboard](screenshots/image_1.PNG)
+![Starlette SRTDashboard](screenshots/image_1.PNG)
 ![Starlette SRTDashboard](screenshots/image_2.PNG)
 ![Starlette SRTDashboard](screenshots/image_3.PNG)
 ![Starlette SRTDashboard](screenshots/image_4.PNG)
-![Starlette SRTDashboard](screenshots/image_5.PNG) -->
+![Starlette SRTDashboard](screenshots/image_5.PNG)

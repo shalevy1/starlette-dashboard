@@ -4,6 +4,7 @@ settings.json
 scratch_pad/
 .vscode
 venv/
+flake8_report/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

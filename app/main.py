@@ -84,7 +84,7 @@ async def login(request):
         logger.critical(e)
 
 
-@app.route("/example/report-task")
+@app.route("/pages/report-task")
 async def report_task(request):
     try:
         obj = open_json("task.json")
@@ -92,13 +92,13 @@ async def report_task(request):
 
         context = {"request": request, "obj": obj}
 
-        template = f"/example/report_task.html"
+        template = f"/pages/report_task.html"
         return templates.TemplateResponse(template, context)
     except HTTPException as e:
         logger.critical(e)
 
 
-@app.route("/example/{page}")
+@app.route("/pages/{page}")
 async def example_pages(request):
     try:
         html_page = request.path_params["page"]
@@ -110,7 +110,7 @@ async def example_pages(request):
         else:
             context = {"request": request}
 
-        template = f"/example/{html_page}.html"
+        template = f"/pages/{html_page}.html"
 
         return templates.TemplateResponse(template, context)
     except HTTPException as e:
