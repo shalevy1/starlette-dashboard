@@ -1,274 +1,289 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang=""> <!--<![endif]-->
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <!-- Meta, title, CSS, favicons, etc. -->
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Starlette Dashboard</title>
+    <meta name="description" content="Sufee Admin - HTML5 Admin Template built with Starlette">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Gentelella Alela! | </title>
-  {% include 'base_header.html' %}
+    <link rel="apple-touch-icon" href="{{ url_for('static' , path='apple-icon.png') }}">
+    <link rel="shortcut icon" href="{{ url_for('static' , path='favicon.ico') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static' , path='assets/css/normalize.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static' , path='assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static' , path='assets/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static' , path='assets/css/themify-icons.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static' , path='assets/css/flag-icon.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static' , path='assets/css/cs-skin-elastic.css') }}">
+    <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
+    <link rel="stylesheet" href="{{ url_for('static' , path='assets/scss/style.css') }}">
+    <link href="{{ url_for('static' , path='assets/css/lib/vector-map/jqvmap.min.css') }}" rel="stylesheet">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+
 </head>
+<body>
 
-<body class="nav-md">
-  <div class="container body">
-    <div class="main_container">
-      <div class="col-md-3 left_col">
-        <div class="left_col scroll-view">
-          <div class="navbar nav_title" style="border: 0;">
-            <a href="/index" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
-          </div>
+<!-- Left Panel -->
 
-          <div class="clearfix"></div>
+<aside id="left-panel" class="left-panel">
+    <nav class="navbar navbar-expand-sm navbar-default">
 
-          <!-- menu profile quick info -->
-          <div class="profile clearfix">
-            <div class="profile_pic">
-              <img src="{{ url_for('static', path='assets/images/img.jpg') }}" alt="..." class="img-circle profile_img">
-            </div>
-            <div class="profile_info">
-              <span>Welcome,</span>
-              <h2>John Doe</h2>
-            </div>
-          </div>
-          <!-- /menu profile quick info -->
-
-          <br />
-
-          <!-- sidebar menu -->
-          <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-            <div class="menu_section">
-              <h3>General</h3>
-              <ul class="nav side-menu">
-                <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a href="/index">Dashboard</a></li>
-                    <li><a href="/index2">Dashboard2</a></li>
-                    <li><a href="/index3">Dashboard3</a></li>
-                  </ul>
-                </li>
-                <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a href="/example/form">General Form</a></li>
-                    <li><a href="/example/form_advanced">Advanced Components</a></li>
-                    <li><a href="/example/form_validation">Form Validation</a></li>
-                    <li><a href="/example/form_wizards">Form Wizard</a></li>
-                    <li><a href="/example/form_upload">Form Upload</a></li>
-                    <li><a href="/example/form_buttons">Form Buttons</a></li>
-                  </ul>
-                </li>
-                <li><a><i class="fa fa-desktop"></i> UI Elements <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a href="/example/general_elements">General Elements</a></li>
-                    <li><a href="/example/media_gallery">Media Gallery</a></li>
-                    <li><a href="/example/typography">Typography</a></li>
-                    <li><a href="/example/icons">Icons</a></li>
-                    <li><a href="/example/glyphicons">Glyphicons</a></li>
-                    <li><a href="/example/widgets">Widgets</a></li>
-                    <li><a href="/example/invoice">Invoice</a></li>
-                    <li><a href="/example/inbox">Inbox</a></li>
-                    <li><a href="/example/calendar">Calendar</a></li>
-                  </ul>
-                </li>
-                <li><a><i class="fa fa-table"></i> Tables <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a href="/example/tables">Tables</a></li>
-                    <li><a href="/example/tables_dynamic">Table Dynamic</a></li>
-                  </ul>
-                </li>
-                <li><a><i class="fa fa-bar-chart-o"></i> Data Presentation <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a href="/example/chartjs">Chart JS</a></li>
-                    <li><a href="/example/chartjs2">Chart JS2</a></li>
-                    <li><a href="/example/morisjs">Moris JS</a></li>
-                    <li><a href="/example/echarts">ECharts</a></li>
-                    <li><a href="/example/other_charts">Other Charts</a></li>
-                  </ul>
-                </li>
-                <li><a><i class="fa fa-clone"></i>Layouts <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a href="/example/fixed_sidebar">Fixed Sidebar</a></li>
-                    <li><a href="/example/fixed_footer">Fixed Footer</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-            <div class="menu_section">
-              <h3>Live On</h3>
-              <ul class="nav side-menu">
-                <li><a><i class="fa fa-bug"></i> Additional Pages <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a href="/example/e_commerce">E-commerce</a></li>
-                    <li><a href="/example/projects">Projects</a></li>
-                    <li><a href="/example/project_detail">Project Detail</a></li>
-                    <li><a href="/example/contacts">Contacts</a></li>
-                    <li><a href="/example/profile">Profile</a></li>
-                  </ul>
-                </li>
-                <li><a><i class="fa fa-windows"></i> Extras <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a href="/error/403">403 Error</a></li>
-                    <li><a href="/error/404">404 Error</a></li>
-                    <li><a href="/error/500">500 Error</a></li>
-                    <li><a href="/example/plain_page">Plain Page</a></li>
-                    <li><a href="/example/login">Login Page</a></li>
-                    <li><a href="/example/pricing_tables">Pricing Tables</a></li>
-                  </ul>
-                </li>
-                <li><a><i class="fa fa-sitemap"></i> Multilevel Menu <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a href="#level1_1">Level One</a>
-                    <li><a>Level One<span class="fa fa-chevron-down"></span></a>
-                      <ul class="nav child_menu">
-                        <li class="sub_menu"><a href="/example/level2">Level Two</a>
-                        </li>
-                        <li><a href="#level2_1">Level Two</a>
-                        </li>
-                        <li><a href="#level2_2">Level Two</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li><a href="#level1_2">Level One</a>
-                    </li>
-                  </ul>
-                </li>
-                <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Landing Page <span
-                      class="label label-success pull-right">Coming Soon</span></a></li>
-              </ul>
-            </div>
-
-          </div>
-          <!-- /sidebar menu -->
-
-          <!-- /menu footer buttons -->
-          <div class="sidebar-footer hidden-small">
-            <a data-toggle="tooltip" data-placement="top" title="Settings">
-              <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-            </a>
-            <a data-toggle="tooltip" data-placement="top" title="FullScreen">
-              <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
-            </a>
-            <a data-toggle="tooltip" data-placement="top" title="Lock">
-              <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-            </a>
-            <a data-toggle="tooltip" data-placement="top" title="Logout" href="/example/login">
-              <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-            </a>
-          </div>
-          <!-- /menu footer buttons -->
+        <div class="navbar-header">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu"
+                    aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand" href="./">Starlette Dashboard</a>
+            <a class="navbar-brand hidden" href="./"><i class="fa fa-star-half-o" aria-hidden="true"></i></i></a>
         </div>
-      </div>
 
-      <!-- top navigation -->
-      <div class="top_nav">
-        <div class="nav_menu">
-          <nav>
-            <div class="nav toggle">
-              <a id="menu_toggle"><i class="fa fa-bars"></i></a>
-            </div>
+        <div id="main-menu" class="main-menu collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="/"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+                </li>
+                <h3 class="menu-title">UI elements</h3><!-- /.menu-title -->
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Components</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-puzzle-piece"></i><a href="/pages/ui-buttons">Buttons</a></li>
+                        <li><i class="fa fa-id-badge"></i><a href="/pages/ui-badges">Badges</a></li>
+                        <li><i class="fa fa-bars"></i><a href="/pages/ui-tabs">Tabs</a></li>
+                        <li><i class="fa fa-share-square-o"></i><a href="/pages/ui-social-buttons">Social Buttons</a></li>
+                        <li><i class="fa fa-id-card-o"></i><a href="/pages/ui-cards">Cards</a></li>
+                        <li><i class="fa fa-exclamation-triangle"></i><a href="/pages/ui-alerts">Alerts</a></li>
+                        <li><i class="fa fa-spinner"></i><a href="/pages/ui-progressbar">Progress Bars</a></li>
+                        <li><i class="fa fa-fire"></i><a href="/pages/ui-modals">Modals</a></li>
+                        <li><i class="fa fa-book"></i><a href="/pages/ui-switches">Switches</a></li>
+                        <li><i class="fa fa-th"></i><a href="/pages/ui-grids">Grids</a></li>
+                        <li><i class="fa fa-file-word-o"></i><a href="/pages/ui-typography">Typography</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Tables</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-table"></i><a href="/pages/tables-basic">Basic Table</a></li>
+                        <li><i class="fa fa-table"></i><a href="/pages/tables-data">Data Table</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Forms</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="menu-icon fa fa-th"></i><a href="/pages/forms-basic">Basic Form</a></li>
+                        <li><i class="menu-icon fa fa-th"></i><a href="/pages/forms-advanced">Advanced Form</a></li>
+                    </ul>
+                </li>
 
-            <ul class="nav navbar-nav navbar-right">
-              <li class="">
-                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown"
-                  aria-expanded="false">
-                  <img src="{{ url_for('static', path='assets/images/img.jpg') }}" alt="">John Doe
-                  <span class=" fa fa-angle-down"></span>
-                </a>
-                <ul class="dropdown-menu dropdown-usermenu pull-right">
-                  <li><a href="javascript:;"> Profile</a></li>
-                  <li>
-                    <a href="javascript:;">
-                      <span class="badge bg-red pull-right">50%</span>
-                      <span>Settings</span>
-                    </a>
-                  </li>
-                  <li><a href="javascript:;">Help</a></li>
-                  <li><a href="/example/login"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
-                </ul>
-              </li>
+                <h3 class="menu-title">Icons</h3><!-- /.menu-title -->
 
-              <li role="presentation" class="dropdown">
-                <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
-                  <i class="fa fa-envelope-o"></i>
-                  <span class="badge bg-green">6</span>
-                </a>
-                <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
-                  <li>
-                    <a>
-                      <span class="image"><img src="{{ url_for('static', path='assets/images/img.jpg') }}"
-                          alt="Profile Image" /></span>
-                      <span>
-                        <span>John Smith</span>
-                        <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                        Film festivals used to be do-or-die moments for movie makers. They were where...
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a>
-                      <span class="image"><img src="{{ url_for('static', path='assets/images/img.jpg') }}"
-                          alt="Profile Image" /></span>
-                      <span>
-                        <span>John Smith</span>
-                        <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                        Film festivals used to be do-or-die moments for movie makers. They were where...
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a>
-                      <span class="image"><img src="{{ url_for('static', path='assets/images/img.jpg') }}"
-                          alt="Profile Image" /></span>
-                      <span>
-                        <span>John Smith</span>
-                        <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                        Film festivals used to be do-or-die moments for movie makers. They were where...
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a>
-                      <span class="image"><img src="{{ url_for('static', path='assets/images/img.jpg') }}"
-                          alt="Profile Image" /></span>
-                      <span>
-                        <span>John Smith</span>
-                        <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                        Film festivals used to be do-or-die moments for movie makers. They were where...
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <div class="text-center">
-                      <a>
-                        <strong>See All Alerts</strong>
-                        <i class="fa fa-angle-right"></i>
-                      </a>
-                    </div>
-                  </li>
-                </ul>
-              </li>
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>Icons</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="menu-icon fa fa-fort-awesome"></i><a href="/pages/font-fontawesome">Font Awesome</a>
+                        </li>
+                        <li><i class="menu-icon ti-themify-logo"></i><a href="/pages/font-themify">Themefy Icons</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/pages/widgets"> <i class="menu-icon ti-email"></i>Widgets </a>
+                </li>
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false"> <i class="menu-icon fa fa-bar-chart"></i>Charts</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="menu-icon fa fa-line-chart"></i><a href="/pages/charts-chartjs">Chart JS</a></li>
+                        <li><i class="menu-icon fa fa-area-chart"></i><a href="/pages/charts-flot">Flot Chart</a></li>
+                        <li><i class="menu-icon fa fa-pie-chart"></i><a href="/pages/charts-peity">Peity Chart</a></li>
+                    </ul>
+                </li>
+
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false"> <i class="menu-icon fa fa-area-chart"></i>Maps</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="menu-icon fa fa-map-o"></i><a href="/pages/maps-gmap">Google Maps</a></li>
+                        <li><i class="menu-icon fa fa-street-view"></i><a href="/pages/maps-vector">Vector Maps</a></li>
+                    </ul>
+                </li>
+                <h3 class="menu-title">Extras</h3><!-- /.menu-title -->
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false"> <i class="menu-icon fa fa-glass"></i>Pages</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="menu-icon fa fa-sign-in"></i><a href="/pages/page-login">Login</a></li>
+                        <li><i class="menu-icon fa fa-sign-in"></i><a href="/pages/page-register">Register</a></li>
+                        <li><i class="menu-icon fa fa-paper-plane"></i><a href="/pages/pages-forget">Forget Pass</a></li>
+                        <li><i class="menu-icon fa fa-sign-in"></i><a href="/pages/about">About</a></li>
+                    </ul>
+                </li>
             </ul>
-          </nav>
+        </div><!-- /.navbar-collapse -->
+    </nav>
+</aside><!-- /#left-panel -->
+
+<!-- Left Panel -->
+
+<!-- Right Panel -->
+
+<div id="right-panel" class="right-panel">
+
+    <!-- Header-->
+    <header id="header" class="header">
+
+        <div class="header-menu">
+
+            <div class="col-sm-7">
+                <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
+                <div class="header-left">
+                    <button class="search-trigger"><i class="fa fa-search"></i></button>
+                    <div class="form-inline">
+                        <form class="search-form">
+                            <input class="form-control mr-sm-2" type="text" placeholder="Search ..."
+                                   aria-label="Search">
+                            <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
+                        </form>
+                    </div>
+
+                    <div class="dropdown for-notification">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="notification"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-bell"></i>
+                            <span class="count bg-danger">5</span>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="notification">
+                            <p class="red">You have 3 Notification</p>
+                            <a class="dropdown-item media bg-flat-color-1" href="#">
+                                <i class="fa fa-check"></i>
+                                <p>Server #1 overloaded.</p>
+                            </a>
+                            <a class="dropdown-item media bg-flat-color-4" href="#">
+                                <i class="fa fa-info"></i>
+                                <p>Server #2 overloaded.</p>
+                            </a>
+                            <a class="dropdown-item media bg-flat-color-5" href="#">
+                                <i class="fa fa-warning"></i>
+                                <p>Server #3 overloaded.</p>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="dropdown for-message">
+                        <button class="btn btn-secondary dropdown-toggle" type="button"
+                                id="message"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="ti-email"></i>
+                            <span class="count bg-primary">9</span>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="message">
+                            <p class="red">You have 4 Mails</p>
+                            <a class="dropdown-item media bg-flat-color-1" href="#">
+                                <span class="photo media-left"><img alt="avatar"
+                                                                    src="{{ url_for('static' , path='images/avatar/1.jpg') }}"></span>
+                                <span class="message media-body">
+                                    <span class="name float-left">Jonathan Smith</span>
+                                    <span class="time float-right">Just now</span>
+                                        <p>Hello, this is an example msg</p>
+                                </span>
+                            </a>
+                            <a class="dropdown-item media bg-flat-color-4" href="#">
+                                <span class="photo media-left"><img alt="avatar"
+                                                                    src="{{ url_for('static' , path='images/avatar/2.jpg') }}"></span>
+                                <span class="message media-body">
+                                    <span class="name float-left">Jack Sanders</span>
+                                    <span class="time float-right">5 minutes ago</span>
+                                        <p>Lorem ipsum dolor sit amet, consectetur</p>
+                                </span>
+                            </a>
+                            <a class="dropdown-item media bg-flat-color-5" href="#">
+                                <span class="photo media-left"><img alt="avatar"
+                                                                    src="{{ url_for('static' , path='images/avatar/3.jpg') }}"></span>
+                                <span class="message media-body">
+                                    <span class="name float-left">Cheryl Wheeler</span>
+                                    <span class="time float-right">10 minutes ago</span>
+                                        <p>Hello, this is an example msg</p>
+                                </span>
+                            </a>
+                            <a class="dropdown-item media bg-flat-color-3" href="#">
+                                <span class="photo media-left"><img alt="avatar"
+                                                                    src="{{ url_for('static' , path='images/avatar/4.jpg') }}"></span>
+                                <span class="message media-body">
+                                    <span class="name float-left">Rachel Santos</span>
+                                    <span class="time float-right">15 minutes ago</span>
+                                        <p>Lorem ipsum dolor sit amet, consectetur</p>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-5">
+                <div class="user-area dropdown float-right">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false">
+                        <img class="user-avatar rounded-circle"
+                             src="{{ url_for('static' , path='images/admin.jpg') }}" alt="User Avatar">
+                    </a>
+
+                    <div class="user-menu dropdown-menu">
+                        <a class="nav-link" href="#"><i class="fa fa-user"></i> My Profile</a>
+
+                        <a class="nav-link" href="#"><i class="fa fa-user"></i> Notifications <span
+                                class="count">13</span></a>
+
+                        <a class="nav-link" href="#"><i class="fa fa-cog"></i> Settings</a>
+
+                        <a class="nav-link" href="#"><i class="fa fa-power-off"></i> Logout</a>
+                    </div>
+                </div>
+
+                <div class="language-select dropdown" id="language-select">
+                    <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="language" aria-haspopup="true"
+                       aria-expanded="true">
+                        <i class="flag-icon flag-icon-us"></i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="language">
+                        <div class="dropdown-item">
+                            <span class="flag-icon flag-icon-ie"></span>
+                        </div>
+                        <div class="dropdown-item">
+                            <span class="flag-icon flag-icon-fr"></span>
+                        </div>
+                        <div class="dropdown-item">
+                            <i class="flag-icon flag-icon-es"></i>
+                        </div>
+                        <div class="dropdown-item">
+                            <i class="flag-icon flag-icon-us"></i>
+                        </div>
+                        <div class="dropdown-item">
+                            <i class="flag-icon flag-icon-it"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
-      </div>
-      <!-- /top navigation -->
-      {% block content %}
-      {% endblock %}
-      {% include 'base_footer.html' %}
-    </div>
-  </div>
-  {% include 'base_js_lib.html' %}
+
+    </header><!-- /header -->
+    <!-- Header-->
+
+    <!-- end header -->
+    {% block body %}{% endblock %}
+
+    <!-- begin footer -->
+
 
 </body>
-
 </html>

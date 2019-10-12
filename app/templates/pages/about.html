@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{#{% block body %}#}
+{% block body %}
+<!-- begin -->
+<div class="py-5 text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Sufee Admin for Flask</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="px-lg-5 d-flex flex-column justify-content-center col-lg-6">
+        ![Starlette Dashboard](screenshots/image_1.PNG)
+
+        ### Use it
+        - git clone https://github.com/devsetgo/starlette-dashboard
+        - create a virtualenv on linux or Windows Subsystem Linux
+
+        #### Run APP
+        First Change directory to app
+
+        UVICORN
+        Development:
+        ~~~~
+        uvicorn main:app --port 5000 --reload
+        python3 main.py
+        ~~~~
+        Production:
+        ~~~~
+        uvicorn main:app --workers 2
+        gunicorn -c gunicorn_cfg.py main:app
+        # Note: gunicorn is the config for the dockerfile
+        ~~~~
+
+        Docker
+        ~~~~
+        Docker: docker pull mikeryan56/starlette-dashboard:latest (not implemented)
+        ~~~~
+
+        #### Run Tests
+        ~~~~
+        python3 -m pytest
+        ~~~~
+
+        #### Create coverage badge
+        ~~~~
+        coverage-badge -o coverage.svg -f
+        ~~~~
+
+        #### Pre-Commit & Hooks
+        ~~~~
+        - Follow install instructionsL: [https://pre-commit.com/#install](https://pre-commit.com/#install)
+        - pre-commit install
+        - pre-commit run -a
+        ~~~~
+
+      </div>
+      <div class="col-lg-6"> <img class="img-fluid d-block"
+          src="{{ url_for('static' , path='images/flask-python.png') }}">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="p-0 col-lg-5 order-2 order-lg-1"> <img class="img-fluid d-block"
+          src="{{ url_for('static' , path='images/Octocat.png') }}">
+      </div>
+      <div class="d-flex flex-column justify-content-center p-3 col-lg-7 order-1 order-lg-2">
+        <p class="lead mb-0">Help, fork, or just this template. I hope you enjoy it and it helps out!</p>
+        <div class="github-card" data-github="MikeRyan56/Flask-Sufee-Admin" data-width="400" data-height="153"
+          data-theme="default"></div>
+        <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% include 'base_assets.html' %}
+{% endblock %}
