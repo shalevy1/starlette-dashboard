@@ -43,7 +43,7 @@ UVICORN
 ~~~~
     Production:
 ~~~~
-    uvicorn main:app --workers 2
+    uvicorn main:app --workers 2 --port 5000
     gunicorn -c gunicorn_cfg.py main:app
     # Note: gunicorn is the config for the dockerfile
 ~~~~
