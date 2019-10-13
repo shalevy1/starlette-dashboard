@@ -4,10 +4,9 @@ import os
 from pathlib import Path
 
 import requests
-from requests.exceptions import Timeout
-
 import uvicorn
 from loguru import logger
+from requests.exceptions import Timeout
 from starlette.applications import Starlette
 from starlette.config import Config
 from starlette.exceptions import HTTPException
@@ -15,12 +14,14 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.middleware.httpsredirect import HTTPSRedirectMiddleware
 from starlette.middleware.trustedhost import TrustedHostMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
+from starlette.routing import Mount, Route, Router
 from starlette.staticfiles import StaticFiles
 from starlette.templating import Jinja2Templates
 
 from com_lib.file_functions import open_json
 from com_lib.logging_config import config_logging
 from db_setup import create_db
+from routes import routes
 
 config = Config(".env")
 logger.info("Logging initiated")
@@ -38,12 +39,15 @@ config_logging()
 create_db()
 logger.info("Databasee initiated")
 
-templates = Jinja2Templates(directory="templates")
-
 app = Starlette(debug=debug_mode)
 logger.info("Application initiated")
 
+# templates and static files
+templates = Jinja2Templates(directory="templates")
 app.mount("/static", StaticFiles(directory="statics"), name="static")
+
+# all routes for all pages
+app.mount("/", routes)
 
 
 @app.on_event("startup")
@@ -56,82 +60,6 @@ def startup():
 @app.on_event("shutdown")
 async def shutdown():
     logger.info("Applicaton shutdown")
-
-
-@app.route("/")
-@app.route("/index")
-async def homepage(request):
-    try:
-        logger.info(f"page accessed: /")
-        template = "index.html"
-        context = {"request": request}
-        return templates.TemplateResponse(template, context)
-    except HTTPException as e:
-        logger.critical(e)
-
-
-@app.route("/login")
-async def login(request):
-    try:
-        # html_page = request.path_params["page"]
-        logger.info(f"page accessed: login")
-
-        context = {"request": request}
-
-        template = f"login.html"
-        return templates.TemplateResponse(template, context)
-    except HTTPException as e:
-        logger.critical(e)
-
-
-@app.route("/pages/report-task")
-async def report_task(request):
-    try:
-        obj = open_json("task.json")
-        logger.info(f"page accessed: login")
-
-        context = {"request": request, "obj": obj}
-
-        template = f"/pages/report_task.html"
-        return templates.TemplateResponse(template, context)
-    except HTTPException as e:
-        logger.critical(e)
-
-
-@app.route("/pages/{page}")
-async def example_pages(request):
-    try:
-        html_page = request.path_params["page"]
-        logger.info(f"page accessed: /example/{html_page}")
-
-        if html_page == "datatable":
-            obj = call_api()
-            context = {"request": request, "obj": obj}
-        else:
-            context = {"request": request}
-
-        template = f"/pages/{html_page}.html"
-
-        return templates.TemplateResponse(template, context)
-    except HTTPException as e:
-        logger.critical(e)
-
-
-def call_api():
-    """ call test-api to fetch fake users.  """
-    # TODO: Consider changing to encode/httpx when stable https://github.com/encode/httpx
-
-    try:
-        r = requests.get("https://test-api.devsetgo.com/api/v1/users/list", timeout=2)
-        logger.info(f"API Call Status Code: {r.status_code}")
-        obj = r.json()
-        logger.info(f"serving test-api response")
-        return obj
-    except Exception as e:
-        logger.error(f"error: API was non-responsive: {e}")
-        obj = open_json("sample.json")
-        logger.info(f"serving sample.json due to API non-response")
-        return obj
 
 
 @app.route("/error")
