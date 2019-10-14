@@ -10,10 +10,11 @@ from starlette.responses import (
 )
 from starlette.routing import Mount, Route, Router
 
-from .private_routes import app as private_routes
-from .public_routes import app as public_routes
+from .main import app as main_routes
 
-public_routes = Starlette()
+# from .private_routes import app as private_routes
 
-public_routes.mount("/{user_id:int}", app=private_routes)
-public_routes.mount("/", app=public_routes)
+start_routes = Starlette()
+
+# page_routes.mount('/{user_id:int}', app=private_routes)
+start_routes.mount("/", app=main_routes)
