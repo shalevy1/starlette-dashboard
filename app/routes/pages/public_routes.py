@@ -18,37 +18,24 @@ from com_lib.file_functions import open_json
 
 from .functions import call_api
 
-# from models import *
 
 app = Starlette()
 templates = Jinja2Templates(directory="templates")
 app.mount("/static", StaticFiles(directory="statics"), name="static")
 
 
-# @app.route("/")
-# @app.route("/index")
-# async def homepage(request):
+# @app.route("/login")
+# async def login(request):
 #     try:
-#         logger.info(f"page accessed: /")
-#         template = "index.html"
+#         # html_page = request.path_params["page"]
+#         logger.info(f"page accessed: login")
+
 #         context = {"request": request}
+
+#         template = f"login.html"
 #         return templates.TemplateResponse(template, context)
 #     except HTTPException as e:
 #         logger.critical(e)
-
-
-@app.route("/login")
-async def login(request):
-    try:
-        # html_page = request.path_params["page"]
-        logger.info(f"page accessed: login")
-
-        context = {"request": request}
-
-        template = f"login.html"
-        return templates.TemplateResponse(template, context)
-    except HTTPException as e:
-        logger.critical(e)
 
 
 @app.route("/{page}")
