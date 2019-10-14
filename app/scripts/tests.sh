@@ -14,3 +14,6 @@ python3 -m pytest -v -s
 
 # create coverage-badge
 coverage-badge -o ../coverage.svg -f
+
+# generate flake8 report
+flake8 --tee . > flake8_report/report.txt

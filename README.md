@@ -43,7 +43,7 @@ UVICORN
 ~~~~
     Production:
 ~~~~
-    uvicorn main:app --workers 2
+    uvicorn main:app --workers 2 --port 5000
     gunicorn -c gunicorn_cfg.py main:app
     # Note: gunicorn is the config for the dockerfile
 ~~~~
@@ -80,9 +80,9 @@ python3 -m pytest
     - [ ] Minimum of 80%
     - [ ] Exception Testing
     - [ ] Mock [requests](https://2.python-requests.org/en/master/) call
-- [ ] Better organization
-    - [ ] Use of Endpoints (equivalent to Flask Blueprints)
-- [ ] Configuration Scripts
+- [x] Better organization
+    - [x] Use of Endpoints (equivalent to Flask Blueprints) - starlette routes and endpoint (/app/routes)
+- [x] Configuration Scripts
 
 - [ ] Access Controls
   - [ ] Add Access controls
@@ -90,21 +90,21 @@ python3 -m pytest
 
 - [x] Gunicorn/Uvicorn configuration
 - [x] Logging (using [Loguru](https://github.com/Delgan/loguru))
-- [ ] Setup CI/CD Pipeline for test and deployment
-    - [ ] [SonarCloud](https://sonarcloud.io)
-    - [ ] [Github Actions](https://github.com/features/actions) found in .github/workflow/actions
+- [x] Setup CI/CD Pipeline for test and deployment
+    - [x] [SonarCloud](https://sonarcloud.io)
+    - [x] [Github Actions](https://github.com/features/actions) found in .github/workflow/actions
         - [x] tests - matrix run of Python 3.6 and 3.7
             - [ ] CodeCove.io upload
-        - [ ] docker-rc - docker build and push when pull request approved for release-candidate branch (calendar version - rc)
-        - [ ] docker-master - docker build and push when pull request approved for master branch (calender version and latest)
-        - [ ] ensure docker build only happens after pull_request approved and merged into higher branch
+        - [x] docker-rc - docker build and push when pull request approved for release-candidate branch (calendar version - rc)
+        - [x] docker-master - docker build and push when pull request approved for master branch (calender version and latest)
+        - [x] ensure docker build only happens after pull_request approved and merged into higher branch
 - [ ] [Twelve Factor App](https://12factor.net/) ready
 - [ ] Build a [cookiecutter](https://github.com/audreyr/cookiecutter) template for
 - [ ] Add code comments
 - [ ] Websocket example
 
 - Docker
-  - [ ] Docker Image
+  - [x] Docker Image
   - [x] Docker-Compose
     - [ ] Docker Swarm settings
   - [ ] Kubernetes Kompose
