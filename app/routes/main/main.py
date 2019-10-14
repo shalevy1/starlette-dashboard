@@ -29,22 +29,22 @@ async def homepage(request):
         template = "index.html"
         context = {"request": request}
         return templates.TemplateResponse(template, context)
-    except HTTPException as e:
+    except Exception as e:
         logger.critical(e)
 
 
-@app.route("/login")
-async def login(request):
-    try:
-        # html_page = request.path_params["page"]
-        logger.info(f"page accessed: login")
+# @app.route("/login")
+# async def login(request):
+#     try:
+#         # html_page = request.path_params["page"]
+#         logger.info(f"page accessed: login")
 
-        context = {"request": request}
+#         context = {"request": request}
 
-        template = f"login.html"
-        return templates.TemplateResponse(template, context)
-    except HTTPException as e:
-        logger.critical(e)
+#         template = f"login.html"
+#         return templates.TemplateResponse(template, context)
+#     except HTTPException as e:
+#         logger.critical(e)
 
 
 # @app.route('/')     # methods defaults to GET

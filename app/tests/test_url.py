@@ -72,13 +72,15 @@ class Test(unittest.TestCase):
         assert len(result) != 0
 
     # TODO: determine why exceptions are not being tested properly
-    def test_call_api_error(self):
-        m = mock.Mock()
-        m.side_effect = Exception(call_api())
-        try:
-            m()
-        except Exception:
-            assert True
+    # def test_call_api_error(self):
+    #     # m = mock.Mock()
+    #     # m.side_effect = Exception(call_api())
+    #     # try:
+    #     #     m()
+    #     # except Exception:
+    #     #     assert True
+    #     with pytest.raises(Exception):
+    #         assert call_api()
 
 
 # TODO: determine why exceptions are not being tested properly
