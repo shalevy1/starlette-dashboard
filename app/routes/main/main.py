@@ -18,7 +18,7 @@ from com_lib.file_functions import open_json
 
 app = Starlette()
 templates = Jinja2Templates(directory="templates")
-# app.mount("/static", StaticFiles(directory="statics"), name="static")
+app.mount("/static", StaticFiles(directory="statics"), name="static")
 
 
 @app.route("/")
