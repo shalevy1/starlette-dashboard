@@ -21,7 +21,7 @@ from .functions import call_api
 
 app = Starlette()
 templates = Jinja2Templates(directory="templates")
-# app.mount("/static", StaticFiles(directory="statics"), name="static")
+app.mount("/static", StaticFiles(directory="statics"), name="static")
 
 
 # @app.route("/login")
