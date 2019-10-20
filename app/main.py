@@ -58,7 +58,7 @@ async def error(request):
 
 
 @app.exception_handler(403)
-async def not_found(request, exc):
+async def forbidden_403(request, exc):
     print(request, exc)
     """
     Return an HTTP 403 page.
@@ -69,7 +69,7 @@ async def not_found(request, exc):
 
 
 @app.exception_handler(404)
-async def not_found(request, exc):
+async def not_found_404(request, exc):
     print(request, exc)
     """
     Return an HTTP 404 page.
