@@ -18,7 +18,6 @@ from com_lib.file_functions import open_json
 
 from .functions import call_api
 
-
 app = Starlette()
 templates = Jinja2Templates(directory="templates")
 app.mount("/static", StaticFiles(directory="statics"), name="static")
