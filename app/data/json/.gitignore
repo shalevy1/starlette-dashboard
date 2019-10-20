@@ -3,4 +3,4 @@
 # except this one
 !.gitignore
 !.task.json
-!.people_sample.json
+!.sample_people.json
