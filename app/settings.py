@@ -4,7 +4,7 @@ Most configuration is set via environment variables.
 For local development, use a .env file to set
 environment variables.
 """
-import os
+# import os
 
 from starlette.config import Config
 

@@ -1,24 +1,11 @@
 # -*- coding: utf-8 -*-
-import json
-import os
-from pathlib import Path
-
-import requests
 import uvicorn
 from loguru import logger
-from requests.exceptions import Timeout
 from starlette.applications import Starlette
 from starlette.config import Config
-from starlette.exceptions import HTTPException
-from starlette.middleware.cors import CORSMiddleware
-from starlette.middleware.httpsredirect import HTTPSRedirectMiddleware
-from starlette.middleware.trustedhost import TrustedHostMiddleware
-from starlette.responses import HTMLResponse, JSONResponse
-from starlette.routing import Mount, Route, Router
 from starlette.staticfiles import StaticFiles
 from starlette.templating import Jinja2Templates
 
-from com_lib.file_functions import open_json
 from com_lib.logging_config import config_logging
 from db_setup import create_db
 from routes import routes
@@ -71,7 +58,7 @@ async def error(request):
 
 
 @app.exception_handler(403)
-async def not_found(request, exc):
+async def forbidden_403(request, exc):
     print(request, exc)
     """
     Return an HTTP 403 page.
@@ -82,7 +69,7 @@ async def not_found(request, exc):
 
 
 @app.exception_handler(404)
-async def not_found(request, exc):
+async def not_found_404(request, exc):
     print(request, exc)
     """
     Return an HTTP 404 page.

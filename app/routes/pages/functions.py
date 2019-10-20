@@ -21,6 +21,6 @@ def call_api():
         return obj
     except Exception as e:
         logger.error(f"error: API was non-responsive: {e}")
-        obj = open_json("people_sample.json")
+        obj = open_json("sample_people.json")
         logger.info(f"serving sample.json due to API non-response")
         return obj
