@@ -1,35 +1,24 @@
 # -*- coding: utf-8 -*-
 # from sqlalchemy.orm import scoped_session, sessionmaker
-from datetime import datetime, timedelta
+# from datetime import datetime, timedelta
 
 import databases
 from loguru import logger
-from sqlalchemy import (
+from sqlalchemy.pool import QueuePool
+
+from settings import SQLALCHEMY_DATABASE_URI
+
+from sqlalchemy import (  # Date,; Float,; ForeignKey,; Integer,
     Boolean,
     Column,
-    Date,
     DateTime,
-    Float,
-    ForeignKey,
-    Integer,
     MetaData,
     String,
     Table,
     create_engine,
 )
-from sqlalchemy.pool import QueuePool
-from starlette.config import Config
 
-from settings import (
-    APP_VERSION,
-    HOST_DOMAIN,
-    LICENSE_LINK,
-    LICENSE_TYPE,
-    OWNER,
-    RELEASE_ENV,
-    SQLALCHEMY_DATABASE_URI,
-    WEBSITE,
-)
+# from starlette.config import Config
 
 engine = create_engine(
     SQLALCHEMY_DATABASE_URI, poolclass=QueuePool, max_overflow=10, pool_size=100
