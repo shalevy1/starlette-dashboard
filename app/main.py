@@ -3,6 +3,7 @@ import uvicorn
 from loguru import logger
 from starlette.applications import Starlette
 from starlette.config import Config
+from starlette.routing import Mount, Route
 from starlette.staticfiles import StaticFiles
 from starlette.templating import Jinja2Templates
 
@@ -26,7 +27,7 @@ config_logging()
 create_db()
 logger.info("Databasee initiated")
 
-app = Starlette(debug=debug_mode)
+app = Starlette(debug=True)
 logger.info("Application initiated")
 
 # templates and static files

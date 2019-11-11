@@ -1,20 +1,38 @@
 {% extends "base.html" %}
-{#{% block body %}#}
 {% block body %}
 <!-- begin -->
+<!-- Main content -->
+<section class="content">
+  <div class="error-page">
+    <h2 class="headline text-warning"> 404</h2>
 
-<div class="py-5 text-center">
-  <div class="container">
-    <div class="row">
-      <div class="d-flex flex-column justify-content-center p-3 col-lg-10 order-1 order-lg-10">
-        <h1 class="error-number">404</h1>
-        <h2>Sorry but we couldn't find this page</h2>
-        <p>This page you are looking for does not exist <a href="#">Report this?</a>
-        </p>
-      </div>
+    <div class="error-content">
+      <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! Page not found.</h3>
+
+      <p>
+        We could not find the page you were looking for.
+        Meanwhile, you may <a href="/">return to dashboard</a> or try using the search form.
+      </p>
+
+      <form class="search-form">
+        <div class="input-group">
+          <input type="text" name="search" class="form-control" placeholder="Search">
+
+          <div class="input-group-append">
+            <button type="submit" name="submit" class="btn btn-warning"><i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+        <!-- /.input-group -->
+      </form>
     </div>
+    <!-- /.error-content -->
   </div>
+  <!-- /.error-page -->
+</section>
+<!-- /.content -->
 </div>
+<!-- /.content-wrapper -->
+<!-- end -->
 
-{% include 'base_assets.html' %}
 {% endblock %}
