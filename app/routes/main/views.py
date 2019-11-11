@@ -13,12 +13,11 @@ app.mount("/static", StaticFiles(directory="statics"), name="static")
 
 # @app.route("/")
 async def homepage(request):
-    print('hi')
+
     try:
-        # html_page = request.path_params["page"]
-        logger.info(f"page accessed: /")
         template = "index.html"
         context = {"request": request}
+        logger.info(f"page accessed: /")
         return templates.TemplateResponse(template, context)
     except Exception as e:
         # logger.critical(e)
@@ -26,13 +25,12 @@ async def homepage(request):
 
 # @app.route("/{page}")
 async def homepage_page(request):
-    print('hi')
     try:
         html_page = request.path_params["page"]
-        logger.info(f"page accessed: /{html_page}")
         template = f"{html_page}.html"
         context = {"request": request}
+        logger.info(f"page accessed: {template}")
         return templates.TemplateResponse(template, context)
     except Exception as e:
         # logger.critical(e)
-        logger.info(f"Error: Page accessed: /{html_page}, but error of {e} occurred")
+        logger.info(f"Error: Page accessed: {template}, but error of {e} occurred")
