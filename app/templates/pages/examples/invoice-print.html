@@ -7,13 +7,13 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Bootstrap 4 -->
-
+  {{ url_for('static' , path='dist/js/adminlte.min.js') }}"
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="{{ url_for('static' , path='plugins/fontawesome-free/css/all.min.css') }}">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="{{ url_for('static' , path='dist/css/adminlte.min.css') }}">
 
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
@@ -120,10 +120,10 @@
       <!-- accepted payments column -->
       <div class="col-6">
         <p class="lead">Payment Methods:</p>
-        <img src="../../dist/img/credit/visa.png" alt="Visa">
-        <img src="../../dist/img/credit/mastercard.png" alt="Mastercard">
-        <img src="../../dist/img/credit/american-express.png" alt="American Express">
-        <img src="../../dist/img/credit/paypal2.png" alt="Paypal">
+        <img src="{{ url_for('static' , path='dist/img/credit/visa.png') }}" alt="Visa">
+        <img src="{{ url_for('static' , path='dist/img/credit/mastercard.png') }}" alt="Mastercard">
+        <img src="{{ url_for('static' , path='dist/img/credit/american-express.png') }}" alt="American Express">
+        <img src="{{ url_for('static' , path='dist/img/credit/paypal2.png') }}" alt="Paypal">
 
         <p class="text-muted well well-sm shadow-none" style="margin-top: 10px;">
           Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem plugg dopplr
