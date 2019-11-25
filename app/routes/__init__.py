@@ -34,6 +34,33 @@ routes = Router(
                         endpoint=page_views.example_pages_forms,
                         methods=["GET", "POST"],
                     ),
+                     Route(
+                        "/examples/{page}",
+                        endpoint=page_views.example_pages_examples,
+                        methods=["GET", "POST"],
+                    ),
+                    Route(
+                        "/layout/{page}",
+                        endpoint=page_views.example_pages_layouts,
+                        methods=["GET", "POST"],
+                    ),
+                    Route(
+                        "/mailbox/{page}",
+                        endpoint=page_views.example_pages_mailbox,
+                        methods=["GET", "POST"],
+                    ),
+                    Route(
+                        "/tables/{page}",
+                        endpoint=page_views.example_pages_tables,
+                        methods=["GET", "POST"],
+                    ),
+                    Route(
+                        "/ui/{page}",
+                        endpoint=page_views.example_pages_ui,
+                        methods=["GET", "POST"],
+                    ),
+
+
                 ]
             ),
         ),

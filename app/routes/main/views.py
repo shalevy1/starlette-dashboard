@@ -12,7 +12,7 @@ app.mount("/static", StaticFiles(directory="statics"), name="static")
 
 
 async def homepage(request):
-
+    
     try:
         template = "index.html"
         context = {"request": request}
