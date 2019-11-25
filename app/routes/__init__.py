@@ -13,8 +13,8 @@ from .pages import views as page_views
 # Mount("/pages/", app=public_routes),
 routes = Router(
     [
-        Route("/", main_views.homepage, methods=["GET", "POST"],),
-        Route("/{page}", main_views.homepage_page, methods=["GET", "POST"],),
+        Route("/", main_views.homepage, methods=["GET", "POST"]),
+        Route("/{page}", main_views.homepage_page, methods=["GET", "POST"]),
         Mount(
             "/pages",
             app=Router(
@@ -34,7 +34,7 @@ routes = Router(
                         endpoint=page_views.example_pages_forms,
                         methods=["GET", "POST"],
                     ),
-                     Route(
+                    Route(
                         "/examples/{page}",
                         endpoint=page_views.example_pages_examples,
                         methods=["GET", "POST"],
@@ -54,8 +54,6 @@ routes = Router(
                         endpoint=page_views.example_pages_ui,
                         methods=["GET", "POST"],
                     ),
-
-
                 ]
             ),
         ),

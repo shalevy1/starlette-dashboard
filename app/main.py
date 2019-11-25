@@ -88,7 +88,7 @@ async def server_error(request, exc):
     """
     template = "/error/500.html"
     context = {"request": request}
-    logger.critical(context,exc)
+    logger.critical(context, exc)
     return templates.TemplateResponse(template, context, status_code=500)
 
 

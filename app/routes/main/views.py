@@ -12,7 +12,7 @@ app.mount("/static", StaticFiles(directory="statics"), name="static")
 
 
 async def homepage(request):
-    
+
     try:
         template = "index.html"
         context = {"request": request}
@@ -21,6 +21,7 @@ async def homepage(request):
     except Exception as e:
         # logger.critical(e)
         logger.info(f"Error: Page accessed: / , but error of {e} occurred")
+
 
 async def homepage_page(request):
     try:
