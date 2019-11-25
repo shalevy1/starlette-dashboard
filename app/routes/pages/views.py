@@ -73,20 +73,6 @@ async def example_pages_examples(request):
         # logger.critical(e)
         logger.critical(f"Error: Page accessed: {template}, but error of {e} occurred")
 
-async def example_pages_layouts(request):
-    html_page = request.path_params["page"]
-    logger.info(f"page requested: {html_page}")
-    try:
-        # html_page = request.path_params["page"]
-        
-        template = f"/pages/layouts/{html_page}.html"
-        context = {"request": request}
-        logger.info(f"page accessed: {template}")
-        return templates.TemplateResponse(template, context)
-    except Exception as e:
-        # logger.critical(e)
-        logger.critical(f"Error: Page accessed: {template}, but error of {e} occurred")
-
 async def example_pages_mailbox(request):
     html_page = request.path_params["page"]
     logger.info(f"page requested: {html_page}")

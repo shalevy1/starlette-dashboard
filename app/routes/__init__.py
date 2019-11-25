@@ -40,11 +40,6 @@ routes = Router(
                         methods=["GET", "POST"],
                     ),
                     Route(
-                        "/layout/{page}",
-                        endpoint=page_views.example_pages_layouts,
-                        methods=["GET", "POST"],
-                    ),
-                    Route(
                         "/mailbox/{page}",
                         endpoint=page_views.example_pages_mailbox,
                         methods=["GET", "POST"],
