@@ -3,6 +3,9 @@ from loguru import logger
 from starlette.applications import Starlette
 from starlette.staticfiles import StaticFiles
 from starlette.templating import Jinja2Templates
+from jinja2.exceptions import TemplateNotFound
+from starlette.responses import HTMLResponse
+from starlette.exceptions import HTTPException
 
 # from com_lib.file_functions import open_json
 
@@ -18,9 +21,12 @@ async def homepage(request):
         context = {"request": request}
         logger.info(f"page accessed: /")
         return templates.TemplateResponse(template, context)
+
     except Exception as e:
-        # logger.critical(e)
-        logger.info(f"Error: Page accessed: / , but error of {e} occurred")
+        logger.critical(
+            f"Error: Page accessed: /{html_page} , but HTML page {e} does not exist"
+        )
+        raise HTTPException(404, detail="page note found")
 
 
 async def homepage_page(request):
@@ -30,6 +36,9 @@ async def homepage_page(request):
         context = {"request": request}
         logger.info(f"page accessed: {template}")
         return templates.TemplateResponse(template, context)
+
     except Exception as e:
-        # logger.critical(e)
-        logger.info(f"Error: Page accessed: {template}, but error of {e} occurred")
+        logger.critical(
+            f"Error: Page accessed: /{html_page} , but HTML page {e} does not exist"
+        )
+        raise HTTPException(404, detail="page note found")

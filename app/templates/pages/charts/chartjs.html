@@ -2,7 +2,7 @@
 {% block page_title %}| ChartJS{% endblock %}
 {% block page_stylesheet %}
   <!-- Ionicons -->
-  
+
 {% endblock %}
 {% block page_breadcrumb %} ChartJS{% endblock %}
 {% block page_head_title %}ChartJS Page{% endblock %}
@@ -140,7 +140,7 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
- 
+
 {% endblock %}
 
 {% block page_sidebar_content %}
@@ -220,9 +220,9 @@
     }
 
     // This will get the first returned node in the jQuery collection.
-    var areaChart       = new Chart(areaChartCanvas, { 
+    var areaChart       = new Chart(areaChartCanvas, {
       type: 'line',
-      data: areaChartData, 
+      data: areaChartData,
       options: areaChartOptions
     })
 
@@ -236,9 +236,9 @@
     lineChartData.datasets[1].fill = false;
     lineChartOptions.datasetFill = false
 
-    var lineChart = new Chart(lineChartCanvas, { 
+    var lineChart = new Chart(lineChartCanvas, {
       type: 'line',
-      data: lineChartData, 
+      data: lineChartData,
       options: lineChartOptions
     })
 
@@ -249,12 +249,12 @@
     var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
     var donutData        = {
       labels: [
-          'Chrome', 
+          'Chrome',
           'IE',
-          'FireFox', 
-          'Safari', 
-          'Opera', 
-          'Navigator', 
+          'FireFox',
+          'Safari',
+          'Opera',
+          'Navigator',
       ],
       datasets: [
         {
@@ -272,7 +272,7 @@
     var donutChart = new Chart(donutChartCanvas, {
       type: 'doughnut',
       data: donutData,
-      options: donutOptions      
+      options: donutOptions
     })
 
     //-------------
@@ -290,7 +290,7 @@
     var pieChart = new Chart(pieChartCanvas, {
       type: 'pie',
       data: pieData,
-      options: pieOptions      
+      options: pieOptions
     })
 
     //-------------
@@ -310,7 +310,7 @@
     }
 
     var barChart = new Chart(barChartCanvas, {
-      type: 'bar', 
+      type: 'bar',
       data: barChartData,
       options: barChartOptions
     })
@@ -335,7 +335,7 @@
     }
 
     var stackedBarChart = new Chart(stackedBarChartCanvas, {
-      type: 'bar', 
+      type: 'bar',
       data: stackedBarChartData,
       options: stackedBarChartOptions
     })

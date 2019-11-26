@@ -27,7 +27,9 @@ config_logging()
 create_db()
 logger.info("Databasee initiated")
 
-app = Starlette(debug=True)
+# exception_handlers = {403: forbidden_403, 404: not_found_404, 500: server_error}
+
+app = Starlette(debug=True)  # , exception_handlers=exception_handlers)
 logger.info("Application initiated")
 
 # templates and static files

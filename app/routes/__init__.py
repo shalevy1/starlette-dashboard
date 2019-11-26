@@ -25,6 +25,11 @@ routes = Router(
                         methods=["GET", "POST"],
                     ),
                     Route(
+                        "/error/{page}",
+                        endpoint=page_views.example_pages,
+                        methods=["GET", "POST"],
+                    ),
+                    Route(
                         "/charts/{page}",
                         endpoint=page_views.example_pages_charts,
                         methods=["GET", "POST"],

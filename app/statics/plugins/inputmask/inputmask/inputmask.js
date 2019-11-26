@@ -1518,7 +1518,7 @@
         function seekPrevious(pos, newBlock) {
             var position = pos, tests;
             if (position <= 0) return 0;
-            while (--position > 0 && (newBlock === true && getTest(position).match.newBlockMarker !== true || newBlock !== true && !isMask(position) && (tests = getTests(position), 
+            while (--position > 0 && (newBlock === true && getTest(position).match.newBlockMarker !== true || newBlock !== true && !isMask(position) && (tests = getTests(position),
             tests.length < 2 || tests.length === 2 && tests[1].match.def === ""))) {}
             return position;
         }
