@@ -16,17 +16,10 @@ app.mount("/static", StaticFiles(directory="statics"), name="static")
 
 async def homepage(request):
 
-    try:
-        template = "index.html"
-        context = {"request": request}
-        logger.info(f"page accessed: /")
-        return templates.TemplateResponse(template, context)
-
-    except Exception as e:
-        logger.critical(
-            f"Error: Page accessed: /{html_page} , but HTML page {e} does not exist"
-        )
-        raise HTTPException(404, detail="page note found")
+    template = "index.html"
+    context = {"request": request}
+    logger.info(f"page accessed: /")
+    return templates.TemplateResponse(template, context)
 
 
 async def homepage_page(request):
