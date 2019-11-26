@@ -4,52 +4,162 @@
 {% block page_breadcrumb %} Contact or About{% endblock %}
 {% block page_head_title %}Contact or About Page{% endblock %}
 {% block body %}
-    <!-- Main content -->
-    <div class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Built For</h5>
-                <p class="card-text">
-                  This project is built to be used as a template for Starlette based sites. It is free to use as you wish. I would like to know who, where or what it is used for. Feel free to email me at mike ryan 56 @ gmail . com.
-                </p>
-                <p>I will try to keep the code coverage above 80% with a goal of 90% or greater. Plus a SonarCloud maintability score of A. Currently it is <a href="https://sonarcloud.io/dashboard?id=devsetgo_starlette-dashboard" class="card-link"><img src="https://sonarcloud.io/api/project_badges/measure?project=devsetgo_starlette-dashboard&metric=sqale_rating"></a></p>
-                Contributions to improve, fix, or add functions are welcome at the <a href="https://github.com/devsetgo/starlette-dashboard" class="card-link">GitHub repo</a>
-
-              </div>
-            </div>
-
-            <div class="card card-primary card-outline">
-              <div class="card-body">
-                <h5 class="card-title">Built With</h5>
-
-                <p class="card-text">
-                  This template is built with Starlette, AdminLTE 3.0 HTML template, and Uvicorn as the ASGI Server. There is a Docker Image available to try.
-                </p>
-                <a href="https://Starlette.io" target="_blank" class="card-link">Starlette.io</a>
-                <a href="https://adminlte.io/" target="_blank" class="card-link">AdminLTE.io</a>
-                <a href="https://www.uvicorn.org/" target="_blank" class="card-link">Uvicorn ASGI Server</a>
-                <a href="https://hub.docker.com/repository/docker/mikeryan56/starlette-dashboard" target="_blank" class="card-link">Docker Image</a>
-              </div>
-            </div><!-- /.card -->
+<!-- Main content -->
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Built For</h5>
+            <p class="card-text">
+              This project is built to be used as a template for Starlette based sites. It is free to use as you wish. I
+              would like to know who, where or what it is used for. Feel free to email me at mike ryan 56 @ gmail . com.
+            </p>
+            <p>I will try to keep the code coverage above 80% with a goal of 90% or greater. Plus a SonarCloud
+              maintability score of A.
+            </p>
+            Contributions to improve, fix, or add functions are welcome!
+            <p>
+              <ul class="list-unstyled">
+                <li class="list-group-item">
+                  <a href="https://github.com/devsetgo/starlette-dashboard"><i class="fa fa-github"></i> Github -
+                    devsetgo/starlette-dashboard</a>
+                </li>
+                <li class="list-group-item">
+                  <a href="https://github.com/devsetgo/starlette-dashboard/actions"> <i class="fa fa-signal"></i> Test
+                    Coverage
+                    <img class="pull-right"
+                      src="https://codecov.io/gh/devsetgo/starlette-dashboard/branch/master/graph/badge.svg"></a>
+                </li>
+                <li class="list-group-item">
+                  <a href="https://github.com/devsetgo/starlette-dashboard"> <i class="fa fa-signal"></i> Tests <img
+                      class="pull-right"
+                      src="https://github.com/devsetgo/starlette-dashboard/workflows/Run%20Tests/badge.svg"></a>
+                </li>
+                <li class="list-group-item">
+                  <a href="https://sonarcloud.io/dashboard?id=devsetgo_starlette-dashboard"> <i
+                      class="fa fa-signal"></i>
+                    Sonar
+                    Maintainability <img class="pull-right"
+                      src="https://sonarcloud.io/api/project_badges/measure?project=devsetgo_starlette-dashboard&metric=sqale_rating"></a>
+                </li>
+                <li class="list-group-item">
+                  <a href="https://sonarcloud.io/dashboard?id=devsetgo_starlette-dashboard"> <i
+                      class="fa fa-signal"></i>
+                    Sonar
+                    Reliability <img class="pull-right"
+                      src="https://sonarcloud.io/api/project_badges/measure?project=devsetgo_starlette-dashboard&metric=reliability_rating"></a>
+                </li>
+              </ul>
+            </p>
           </div>
         </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-  {% endblock %}
 
-  {% block page_sidebar_content %}
-  <div class="p-3">
-    <h5>Title</h5>
-    <p>Sidebar content</p>
-  </div>
-  {% endblock %}
-  {% block page_scripts %}
-  <!-- page scripts-->
-  {% endblock %}
+        <div class="card card-primary card-outline">
+          <div class="card-body">
+            <h5 class="card-title">Built With</h5>
+
+            <p class="card-text">
+              This template is built with Starlette, AdminLTE 3.0 HTML template, and Uvicorn as the ASGI Server. There
+              is a Docker Image available to try.
+            </p>
+            <ul class="list-unstyled">
+                <li class="list-group-item">
+            <a href="https://Starlette.io" target="_blank" class="card-link">Starlette.io</a></li>
+            <li class="list-group-item">
+            <a href="https://adminlte.io/" target="_blank" class="card-link">AdminLTE.io</a></li>
+            <li class="list-group-item">
+            <a href="https://www.uvicorn.org/" target="_blank" class="card-link">Uvicorn ASGI Server</a></li>
+            <li class="list-group-item">
+            <a href="https://hub.docker.com/repository/docker/mikeryan56/starlette-dashboard" target="_blank"
+              class="card-link">Docker Image</a></li>
+            </ul>
+          </div>
+        </div><!-- /.card -->
+      </div>
+      <!-- /.col-md-6 -->
+      <div class="col-lg-8">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="m-0">How to Use</h5>
+          </div>
+          <div class="card-body">
+              
+              <pre><code>
+                      ### Use it
+                      -<span class="ruby"> git clone <span class="hljs-symbol">https:</span>/<span class="hljs-regexp">/github.com/devsetgo</span><span class="hljs-regexp">/starlette-dashboard
+                  </span></span>    -<span class="ruby"><span class="hljs-regexp"> create a virtualenv on linux or Windows Subsystem Linux
+                  </span></span>
+                      #### Run APP
+                      First Change directory to app
+                  
+                      UVICORN
+                      Development:
+                      ~~~~
+                      uvicorn main:app --port 5000 --reload
+                      python3 main.py
+                      ~~~~
+                      Production:
+                      ~~~~
+                      uvicorn main:app --workers 2
+                      gunicorn -c gunicorn_cfg.py main:app
+                      # Note: gunicorn is the config for the dockerfile
+                      ~~~~
+                  
+                      Docker
+                      ~~~~
+                      Docker: docker pull mikeryan56/starlette-dashboard:latest (not implemented)
+                      ~~~~
+                  
+                      #### Run Tests
+                      ~~~~
+                      python3 -m pytest
+                      ~~~~
+                  
+                      #### Create coverage badge
+                      ~~~~
+                      coverage-badge -o coverage.svg -f
+                      ~~~~
+                  
+                      #### Pre-Commit &amp; Hooks
+                      ~~~~
+                      -<span class="ruby"><span class="hljs-regexp"> Follow install instructionsL: [https:/</span><span class="hljs-regexp">/pre-commit.com/</span><span class="hljs-comment">#install](https://pre-commit.com/#install)</span>
+                  </span>    -<span class="ruby"> pre-commit install
+                  </span>    -<span class="ruby"> pre-commit run -a
+                  </span>    ~~~~
+                  </code></pre>
+          </div>
+        </div>
+
+        <!-- <div class="card card-primary card-outline">
+          <div class="card-header">
+            <h5 class="m-0">Featured</h5>
+          </div>
+          <div class="card-body">
+            <h6 class="card-title">Special title treatment</h6>
+
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div> -->
+      </div>
+      <!-- /.col-md-6 -->
+    </div>
+    <!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+{% endblock %}
+
+{% block page_sidebar_content %}
+<div class="p-3">
+  <h5>Title</h5>
+  <p>Sidebar content</p>
+</div>
+{% endblock %}
+{% block page_scripts %}
+<!-- page scripts-->
+{% endblock %}
