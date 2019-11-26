@@ -12,19 +12,6 @@ templates = Jinja2Templates(directory="templates")
 app.mount("/static", StaticFiles(directory="statics"), name="static")
 
 
-async def homepage(request):
-    try:
-        # html_page = request.path_params["page"]
-        logger.info(f"page accessed: /pages")
-        template = f"index.html"
-        context = {"request": request}
-        return templates.TemplateResponse(template, context)
-    except Exception as e:
-        logger.critical(
-            f"Error: Page accessed: /{html_page} , but HTML page {e} does not exist"
-        )
-        raise HTTPException(404, detail="page note found")
-
 
 async def example_pages(request):
     html_page = request.path_params["page"]
