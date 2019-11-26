@@ -22,16 +22,14 @@ client = TestClient(app)
 
 
 class Test(unittest.TestCase):
-    
     def test_pages(self):
-        pages = ['calendar','gallery','widgets']
-        
+        pages = ["calendar", "gallery", "widgets"]
+
         for page in pages:
             url = f"/pages/{page}"
             client = TestClient(app)
             response = client.get(url)
             assert response.status_code == 200
-
 
     def test_pages_error(self):
         uid = uuid.uuid1()

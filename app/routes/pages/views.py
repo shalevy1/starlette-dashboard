@@ -1,16 +1,15 @@
 # -*- coding: utf-8 -*-
 from loguru import logger
 from starlette.applications import Starlette
+from starlette.exceptions import HTTPException
 from starlette.staticfiles import StaticFiles
 from starlette.templating import Jinja2Templates
-from starlette.exceptions import HTTPException
 
 from .functions import call_api
 
 app = Starlette()
 templates = Jinja2Templates(directory="templates")
 app.mount("/static", StaticFiles(directory="statics"), name="static")
-
 
 
 async def example_pages(request):
