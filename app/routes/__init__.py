@@ -1,16 +1,9 @@
 # -*- coding: utf-8 -*-
 from starlette.routing import Mount, Route, Router
 
-# from .pages import page_routes
 from .main import views as main_views
 from .pages import views as page_views
 
-# from .main import app as home_routes
-
-
-# mounted app can also be an instance of `Router()`
-# Mount("/", app=home_routes),
-# Mount("/pages/", app=public_routes),
 routes = Router(
     [
         Route("/", main_views.homepage, methods=["GET", "POST"]),
@@ -62,17 +55,5 @@ routes = Router(
                 ]
             ),
         ),
-        # Mount(
-        #     "/pages/charts",
-        #     app=Router(
-        #         [
-        #             Route(
-        #                 "/{page}",
-        #                 endpoint=page_views.example_pages_charts,
-        #                 methods=["GET", "POST"],
-        #             ),
-        #         ]
-        #     ),
-        # ),
     ]
 )
