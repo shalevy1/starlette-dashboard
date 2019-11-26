@@ -2,7 +2,15 @@
 
 import databases
 from loguru import logger
-from sqlalchemy import Boolean, Column, DateTime, MetaData, String, Table, create_engine
+from sqlalchemy import (
+    Boolean,
+    Column,
+    DateTime,
+    MetaData,
+    String,
+    Table,
+    create_engine,
+)
 from sqlalchemy.pool import QueuePool
 
 from settings import SQLALCHEMY_DATABASE_URI
@@ -16,17 +24,17 @@ database = databases.Database(SQLALCHEMY_DATABASE_URI)
 
 def create_db():
     metadata.create_all(engine)
-    logger.info("Create: {info}", info="Creating tables")
+    logger.info(f"Creating tables")
 
 
 async def connect_db():
     await database.connect()
-    logger.info("Create: {info}", info="connecting to database")
+    logger.info(f"connecting to database")
 
 
 async def disconnect_db():
     await database.disconnect()
-    logger.info("Create: {info}", info="disconnecting database")
+    logger.info(f"disconnecting database")
 
 
 users = Table(

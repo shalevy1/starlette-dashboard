@@ -26,7 +26,7 @@ config_logging()
 create_db()
 logger.info("Databasee initiated")
 
-app = Starlette(debug=debug_mode)
+app = Starlette(debug=True)  # , exception_handlers=exception_handlers)
 logger.info("Application initiated")
 
 # templates and static files
@@ -87,6 +87,7 @@ async def server_error(request, exc):
     """
     template = "/error/500.html"
     context = {"request": request}
+    logger.critical(context, exc)
     return templates.TemplateResponse(template, context, status_code=500)
 
 
