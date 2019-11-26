@@ -15,7 +15,7 @@ cfgv==2.0.1
 chardet==3.0.4
 Click==7.0
 contextvars==2.4
-coverage==4.5.4
+coverage==5.0b1
 coverage-badge==1.0.1
 databases==0.2.6
 entrypoints==0.3
