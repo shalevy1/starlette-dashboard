@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
-from jinja2.exceptions import TemplateNotFound
 from loguru import logger
 from starlette.applications import Starlette
 from starlette.exceptions import HTTPException
-from starlette.responses import HTMLResponse
 from starlette.staticfiles import StaticFiles
 from starlette.templating import Jinja2Templates
 

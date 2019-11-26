@@ -1,21 +1,9 @@
 # -*- coding: utf-8 -*-
-import datetime
-import os
-import sys
-import time
 import unittest
-import uuid
-from unittest import mock
 
-import pytest
-import requests
-import requests_mock
-from requests.exceptions import Timeout
-from starlette.exceptions import HTTPException
-from starlette.responses import HTMLResponse
 from starlette.testclient import TestClient
 
-from app.main import app, debug_mode
+from app.main import app
 from routes.pages.functions import call_api
 
 client = TestClient(app)

@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 import datetime
-import os
-import time
 import unittest
 
 import pytest

@@ -5,7 +5,6 @@ from starlette.exceptions import HTTPException
 from starlette.staticfiles import StaticFiles
 from starlette.templating import Jinja2Templates
 
-from .functions import call_api
 
 app = Starlette()
 templates = Jinja2Templates(directory="templates")
