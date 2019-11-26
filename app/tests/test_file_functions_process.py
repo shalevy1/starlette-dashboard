@@ -2,8 +2,6 @@
 # import json
 # import csv
 import datetime
-import os
-import time
 import unittest
 
 import pytest
