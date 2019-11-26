@@ -17,7 +17,7 @@ class Test(unittest.TestCase):
         assert response.status_code == 200
 
     def test_index_pages(self):
-        pages = ["index", "index2", "index3"]
+        pages = ["index", "index2", "index3", "about"]
 
         for page in pages:
             url = f"/{page}"
