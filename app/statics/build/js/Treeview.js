@@ -110,7 +110,7 @@ const Treeview = (($) => {
           return
         }
       }
-      
+
       event.preventDefault()
 
       const parentLi = $relativeTarget.parents(Selector.LI).first()

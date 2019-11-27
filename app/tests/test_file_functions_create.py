@@ -20,7 +20,7 @@ time_str = datetime.datetime.now()
 
 class Test(unittest.TestCase):
     def test_save_json(self):
-        
+
         file_named = "test_1.json"
         json_data = []
         for _ in range(10):
