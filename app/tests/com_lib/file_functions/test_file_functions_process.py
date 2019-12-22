@@ -8,14 +8,10 @@ import pytest
 
 from com_lib.file_functions import (
     create_sample_files,
-    delete_file,
     get_data_directory_list,
     open_csv,
     open_json,
     open_text,
-    save_csv,
-    save_json,
-    save_text,
 )
 
 time_str = datetime.datetime.now()
