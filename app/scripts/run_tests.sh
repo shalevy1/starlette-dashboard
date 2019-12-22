@@ -5,6 +5,8 @@ set -x
 # run isort recursively
 # isort -rc .
 
+# Update pre-commit
+pre-commit autoupdate
 #run pre-commit
 pre-commit run -a
 
