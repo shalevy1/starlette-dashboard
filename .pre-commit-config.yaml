@@ -3,9 +3,10 @@ repos:
     rev: 19.10b0
     hooks:
     - id: black
-      language_version: python3.6
+      language_version: python3.7
+
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v2.3.0
+    rev: v2.4.0
     hooks:
       - id: fix-encoding-pragma
       - id: trailing-whitespace
@@ -13,7 +14,7 @@ repos:
       # - id: requirements-txt-fixer
 
 -   repo: https://github.com/Lucas-C/pre-commit-hooks-safety
-    sha: v1.1.0
+    rev: v1.1.0
     hooks:
     -   id: python-safety-dependencies-check
 
