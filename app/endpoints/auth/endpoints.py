@@ -46,6 +46,7 @@ from loguru import logger
 #     pwd = base64.decode(encoded_pwd)
 #     result = await verify_pass(pwd=pwd, crypt_pwd=crypt_pwd)
 #     return result
+from app_functions.crud_ops import fetch_one_db, execute_one_db
 from starlette.responses import RedirectResponse
 from starlette.datastructures import URL
 
@@ -101,7 +102,7 @@ async def callback(request):
 
     # Log the user in, and redirect back to the homepage.
     query = users.select().where(users.c.github_id == data["id"])
-    user = await database.fetch_one(query)
+    user = await fetch_one_db(query=query)
     if user is None:
 
         query = users.insert()
@@ -122,7 +123,7 @@ async def callback(request):
             "name": data["name"],
             "avatar_url": data["avatar_url"],
         }
-    await database.execute(query, values=values)
+    await execute_one_db(query=query, values=values)
 
     request.session["username"] = data["login"]
     request.session["avatar_url"] = data["avatar_url"]
