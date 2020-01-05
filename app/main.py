@@ -102,6 +102,7 @@ app = Starlette(
 
 # else:  # pragma: nocover
 github_client = httpx.AsyncClient(base_url="https://github.com/")
+# github_client = httpx.AsyncClient(base_url="https://github.com/")
 github_api_client = httpx.AsyncClient(
     base_url="https://api.github.com/",
     headers={"accept": "application/vnd.github.v3+json"},
