@@ -4,7 +4,7 @@ import uuid
 
 from starlette.testclient import TestClient
 
-from app.main import app
+from main import app
 
 client = TestClient(app)
 
@@ -20,14 +20,14 @@ class Test(unittest.TestCase):
         pages = ["index", "index2", "index3", "about"]
 
         for page in pages:
-            url = f"/{page}"
+            url = f"/index/{page}"
             client = TestClient(app)
             response = client.get(url)
             assert response.status_code == 200
 
     def test_index__error(self):
         uid = uuid.uuid1()
-        url = f"/{uid}"
+        url = f"/index/{uid}"
         client = TestClient(app)
         response = client.get(url)
         assert response.status_code == 404
