@@ -1,14 +1,9 @@
 # -*- coding: utf-8 -*-
 from loguru import logger
-from starlette.applications import Starlette
 from starlette.exceptions import HTTPException
-from starlette.staticfiles import StaticFiles
-from starlette.templating import Jinja2Templates
 from resources import templates
-from starlette import responses
 from app_functions.db_setup import users, database
 from endpoints.main.github_calls import get_repo_list
-from operator import itemgetter
 
 
 async def homepage(request):

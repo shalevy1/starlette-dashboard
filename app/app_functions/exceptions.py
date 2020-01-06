@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
-from starlette.exceptions import HTTPException
-from starlette.responses import RedirectResponse, Response, JSONResponse
-from resources import templates, statics
+from resources import templates
 from loguru import logger
 
 

@@ -3,9 +3,7 @@ from loguru import logger
 from starlette.applications import Starlette
 from starlette.exceptions import HTTPException
 from starlette.staticfiles import StaticFiles
-from starlette.templating import Jinja2Templates
 from resources import templates
-from starlette import responses
 
 app = Starlette()
 # templates = Jinja2Templates(directory="templates")

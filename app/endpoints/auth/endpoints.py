@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from loguru import logger
 
 # from starlette.applications import Starlette
 # from starlette.exceptions import HTTPException
@@ -51,7 +50,7 @@ from starlette.responses import RedirectResponse
 from starlette.datastructures import URL
 
 # from source import settings, tables
-from app_functions.db_setup import database, users
+from app_functions.db_setup import users
 
 import settings
 

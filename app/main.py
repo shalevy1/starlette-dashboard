@@ -1,11 +1,9 @@
 # -*- coding: utf-8 -*-
 from starlette.applications import Starlette
-from starlette.responses import PlainTextResponse
-from starlette.routing import Route, Mount, WebSocketRoute
-from resources import init_app, statics, templates
+from starlette.routing import Mount, Route
+from resources import init_app
 import settings
-from loguru import logger
-from app_functions import db_setup, crud_ops, exceptions
+from app_functions import exceptions
 import resources
 from starlette.middleware.sessions import SessionMiddleware
 from starlette.middleware import Middleware
