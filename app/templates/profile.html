@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{{ url_for('static' , path='plugins/datatables-bs4/css/dataTables.bootstrap4.css') }}">
 {% endblock %}
 {% block page_breadcrumb %} {{ request.session.username|title }}{% endblock %}
-{% block page_head_title %}{{ request.session.username|title }}{% endblock %}
+{% block page_head_title %}{{ user_data.name|title }} - {{ user_data.location|title }}{% endblock %}
 {% block body %}
 <!-- Main content -->
 <div class="content">
@@ -13,8 +13,8 @@
     <div class="row">
       <div class="col-md-4 col-sm-6 col-12">
         <div class="info-box">
-          <span class="info-box-icon bg-info"><img class="profile-user-img img-fluid img-square"
-            src="{{ request.session.avatar_url }}" alt="User profile picture"></span>
+          <img src="{{ request.session.avatar_url }}" class="rounded float-left" alt="{{ request.session.username }}"
+                width=60px height=60px />
           <div class="info-box-content">
             <span class="info-box-number">{{ user_data.bio }}</span>
           </div>
