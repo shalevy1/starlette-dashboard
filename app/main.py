@@ -8,9 +8,6 @@ import resources
 from starlette.middleware.sessions import SessionMiddleware
 from starlette.middleware import Middleware
 
-# from endpoints.auth.routes import routes as auth_routes
-# from endpoints.main.routes import routes as main_routes
-# from endpoints.pages.routes import routes as page_routes
 from endpoints.auth import endpoints as auth_pages
 from endpoints.main import endpoints as main_pages
 from endpoints.pages import endpoints as pages
@@ -21,13 +18,9 @@ routes = [
     Route("/", main_pages.homepage, name="dashboard", methods=["GET"]),
     Route("/{username}", main_pages.profile, name="profile", methods=["GET", "POST"]),
     Route("/index/{page}", main_pages.homepage_page, methods=["GET"]),
-    # Route("/user/me", base_routes.user_me, name="user_me"),
-    # Route("/user/{username}", base_routes.user, name="user_name"),
     Mount(
         "/auth",
         routes=[
-            # Route("/login", endpoint=auth_pages.login, methods=["POST"]),
-            # Route("/logout", endpoint=auth_pages.logout, methods=["POST"]),
             Route("/login", endpoint=auth_pages.login, methods=["POST"]),
             Route("/logout", endpoint=auth_pages.logout, methods=["POST"]),
             Route("/callback", endpoint=auth_pages.callback, methods=["GET"]),
@@ -100,7 +93,6 @@ app = Starlette(
 
 # else:  # pragma: nocover
 github_client = httpx.AsyncClient(base_url="https://github.com/")
-# github_client = httpx.AsyncClient(base_url="https://github.com/")
 github_api_client = httpx.AsyncClient(
     base_url="https://api.github.com/",
     headers={"accept": "application/vnd.github.v3+json"},

@@ -15,7 +15,6 @@ def pattern_between(
         esc_left_char = re.escape(left_character)
         esc_right_char = re.escape(right_character)
         esc_split_char = re.escape(split_character)
-        # print(esc_split_char)
 
         # regex pattern to find values between
         pattern = f".*{esc_left_char}(.*){esc_right_char}.*"
@@ -66,7 +65,8 @@ def pattern_between(
         return results
     except Exception as e:
         # capture exception and return results
-        e = f"the split character '{split_character}' is the same as the left '{left_character}' or right character '{right_character}'. Making this an invalid combination."
+        e = f"the split character '{split_character}' is the same as the left '{left_character}'\
+             or right character '{right_character}'. Making this an invalid combination."
         results: dict = {
             "Error": e,
             "matched_found": 0,

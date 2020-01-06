@@ -1,44 +1,72 @@
 {% extends "base.html" %}
-{% block page_title %}| My Page{% endblock %}
+{% block page_title %}| {{ request.session.username|title }}{% endblock %}
 {% block page_stylesheet %}
 <link rel="stylesheet" href="{{ url_for('static' , path='plugins/datatables-bs4/css/dataTables.bootstrap4.css') }}">
 {% endblock %}
-{% block page_breadcrumb %} My Page{% endblock %}
-{% block page_head_title %}My Page{% endblock %}
+{% block page_breadcrumb %} {{ request.session.username|title }}{% endblock %}
+{% block page_head_title %}{{ request.session.username|title }}{% endblock %}
 {% block body %}
 <!-- Main content -->
 <div class="content">
   {% if request.session.username %}
   <div class="container-fluid">
     <div class="row">
-      <div class="col-lg-3">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">My Information</h5>
-
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the bulk of the card's
-              content.
-            </p>
-
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
+      <div class="col-md-4 col-sm-6 col-12">
+        <div class="info-box">
+          <span class="info-box-icon bg-info"><img class="profile-user-img img-fluid img-square"
+            src="{{ request.session.avatar_url }}" alt="User profile picture"></span>
+          <div class="info-box-content">
+            <span class="info-box-number">{{ user_data.bio }}</span>
           </div>
+          <!-- /.info-box-content -->
         </div>
+        <!-- /.info-box -->
+      </div>
+      <div class="col-md-2 col-sm-6 col-12">
+        <div class="info-box">
+          <span class="info-box-icon bg-info"><i class="fab fa-github"></i></span>
+          <div class="info-box-content">
+            <span class="info-box-text">Following</span>
+            <span class="info-box-number">{{ user_data.following}}</span>
+          </div>
+          <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+      </div>
+      <div class="col-md-2 col-sm-6 col-12">
+        <div class="info-box">
+          <span class="info-box-icon bg-info"><i class="fab fa-github-square"></i></span>
+          <div class="info-box-content">
+            <span class="info-box-text">Followers</span>
+            <span class="info-box-number">{{ user_data.followers}}</span>
+          </div>
+          <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+      </div>
+      <div class="col-md-2 col-sm-6 col-12">
+        <div class="info-box">
+          <span class="info-box-icon bg-info"><i class="fas fa-code"></i></span>
+          <div class="info-box-content">
+            <span class="info-box-text">Repos</span>
+            <span class="info-box-number">{{ user_data.public_repos}}</span>
+          </div>
+          <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+      </div>
+      <!-- /.col -->
+      <div class="col-md-2 col-sm-6 col-12">
+        <div class="info-box">
+          <span class="info-box-icon bg-success"><i class="far fa-file-code"></i></span>
 
-        <!-- <div class="card card-primary card-outline">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up the bulk of the card's
-                  content.
-                </p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-              </div>
-            </div> -->
-        <!-- /.card -->
+          <div class="info-box-content">
+            <span class="info-box-text">Gists</span>
+            <span class="info-box-number">{{ user_data.public_gists}}</span>
+          </div>
+          <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
       </div>
       <!-- /.col-md-6 -->
       <!-- <div class="col-lg-6">
@@ -98,7 +126,8 @@
               {% for repo in repo_data %}
               <tr>
                 <td>{{repo.name}}</td>
-                <td><a href="https://github.com/{{request.session.username}}/{{repo.name}}/pulls" target="_blank">{{repo.open_issues_count}}</a></td>
+                <td><a href="https://github.com/{{request.session.username}}/{{repo.name}}/pulls"
+                    target="_blank">{{repo.open_issues_count}}</a></td>
                 <td>{{repo.stargazers_count}}</td>
                 <td>{{repo.watchers}}</td>
                 <td>{{repo.forks_count}}</td>
@@ -154,7 +183,7 @@ nope
   $(function () {
     $("#example1").DataTable();
     $('#example2').DataTable({
-      "order": [[ 1, "desc" ]],
+      "order": [[1, "desc"]],
       "paging": true,
       "lengthChange": true,
       "searching": true,

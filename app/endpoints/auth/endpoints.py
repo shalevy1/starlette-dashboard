@@ -1,60 +1,10 @@
 # -*- coding: utf-8 -*-
-
-# from starlette.applications import Starlette
-# from starlette.exceptions import HTTPException
-# from starlette.staticfiles import StaticFiles
-# from starlette.templating import Jinja2Templates
-# from starlette.authentication import requires
-# from app_functions import crud_ops, db_setup
-# from starlette.responses import RedirectResponse
-# from starlette.datastructures import URL
-# from com_lib.pass_lib import verify_pass
-# import base64
-
-
-# async def login(request):
-
-#     form = await request.form()
-#     user_name = form["user_name"]
-#     pwd = form["password"]
-#     e_pwd = base64.encode(pwd)
-#     query = (
-#         db_setup.users.select()
-#         .where(db_setup.users.c.user_name == user_name)
-#         .order_by(db_setup.users.c.date_create)
-#         .limit(qty)
-#         .offset(offset)
-#     )
-#     user_info = await crud_ops.fetch_one_db(query=query)
-
-#     crypt_pwd = user_info[""]
-#     is_auth = verify_user(pwd=e_pwd, crypt_pwd=crypt_pwd)
-
-#     url = request.url_for("dashboard")
-#     return RedirectResponse(url, status_code=303)
-
-
-# async def logout(request):
-#     request.session.clear()
-#     url = request.url_for("dashboard")
-#     return RedirectResponse(url, status_code=303)
-
-
-# async def verify_user(encoded_pwd: str, crypt_pwd: str) -> bool:
-#     logger.info(f"verifing password")
-#     pwd = base64.decode(encoded_pwd)
-#     result = await verify_pass(pwd=pwd, crypt_pwd=crypt_pwd)
-#     return result
 from app_functions.crud_ops import fetch_one_db, execute_one_db
 from starlette.responses import RedirectResponse
 from starlette.datastructures import URL
 
-# from source import settings, tables
 from app_functions.db_setup import users
-
 import settings
-
-# from source.resources import database
 import datetime
 
 
@@ -127,5 +77,4 @@ async def callback(request):
     request.session["username"] = data["login"]
     request.session["avatar_url"] = data["avatar_url"]
     url = request.url_for("profile", username=data["login"])
-    # url="/mydata"
     return RedirectResponse(url, status_code=303)

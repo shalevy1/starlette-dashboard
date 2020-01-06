@@ -8,7 +8,6 @@ from starlette.templating import Jinja2Templates
 
 # templates and static files
 templates = Jinja2Templates(directory="templates")
-# app.mount("/static", StaticFiles(directory="statics"), name="static")
 statics = StaticFiles(directory="statics")
 
 

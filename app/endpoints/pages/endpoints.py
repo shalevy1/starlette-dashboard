@@ -6,7 +6,6 @@ from starlette.staticfiles import StaticFiles
 from resources import templates
 
 app = Starlette()
-# templates = Jinja2Templates(directory="templates")
 app.mount("/static", StaticFiles(directory="statics"), name="static")
 
 detail = "page note found"
