@@ -20,11 +20,6 @@ LICENSE_LINK = config(
     "LICENSE_LINK", default="https://github.com/devsetgo/starlette-SRTDashboard"
 )
 
-# Demo Data
-CREATE_SAMPLE_DATA = config("CREATE_SAMPLE_DATA", default=False)
-NUMBER_CONFIG = config("NUMBER_CONFIG", default=10)
-NUMBER_USERS = config("NUMBER_USER", default=10)
-
 # Application Configurations
 HOST_DOMAIN = config("HOST_DOMAIN", default="https://devsetgo.com")
 RELEASE_ENV = config("RELEASE_ENV", default="prd")
@@ -38,8 +33,6 @@ LOGURU_ROTATION = config("LOGURU_ROTATION", default="10 MB")
 
 # Access Token Settings
 SECRET_KEY = config("SECRET_KEY", default="secret-key-1234567890")
-ALGORITHM = config("ALGORITHM", default="HS256")
-ACCESS_TOKEN_EXPIRE_MINUTES = config("ACCESS_TOKEN_EXPIRE_MINUTES", default=10080)
 
 # GitHub API
 GITHUB_CLIENT_ID = config("GITHUB_CLIENT_ID", cast=str, default="")
