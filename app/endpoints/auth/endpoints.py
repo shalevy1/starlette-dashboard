@@ -8,10 +8,10 @@ import settings
 import datetime
 
 
-@logger.catch
 async def login(request):
     from main import GITHUB_AUTH_URL
 
+    logger.info(f"loggin request")
     query = {
         "client_id": settings.GITHUB_CLIENT_ID,
         "redirect_url": request.url_for("auth:callback"),
@@ -20,14 +20,13 @@ async def login(request):
     return RedirectResponse(url, status_code=303)
 
 
-@logger.catch
 async def logout(request):
+    logger.info(f'logout request {request.session["username"]}')
     request.session.clear()
     url = request.url_for("dashboard")
     return RedirectResponse(url, status_code=303)
 
 
-@logger.catch
 async def callback(request):
     from main import github_client, github_api_client
 
@@ -83,4 +82,5 @@ async def callback(request):
     request.session["realname"] = data["name"]
     request.session["avatar_url"] = data["avatar_url"]
     url = request.url_for("profile", username=data["login"])
+    logger.info(f'logging {request.session["username"]} and send to profile page')
     return RedirectResponse(url, status_code=303)

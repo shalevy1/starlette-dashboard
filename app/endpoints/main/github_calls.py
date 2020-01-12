@@ -2,7 +2,7 @@
 import httpx
 import settings
 from loguru import logger
-import pprint
+
 
 github_api = httpx.AsyncClient(base_url="https://api.github.com")
 

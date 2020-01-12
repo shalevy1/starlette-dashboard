@@ -12,7 +12,7 @@ from loguru import logger
 config = Config(".env")
 
 # Application information
-DEBUG = config("DEBUG", default=False)
+
 APP_VERSION = config("APP_VERSION", default="1.0.0")
 OWNER = config("OWNER", default="Mike Ryan")
 WEBSITE = config("WEBSITE", default="https://devsetgo.com")
@@ -23,10 +23,16 @@ LICENSE_LINK = config(
 
 # Application Configurations
 HOST_DOMAIN = config("HOST_DOMAIN", default="https://devsetgo.com")
-RELEASE_ENV = config("RELEASE_ENV", default="prd")
+
 SQLALCHEMY_DATABASE_URI = config(
     "SQLALCHEMY_DATABASE_URI", default="sqlite:///sqlite_db/starlette_ui.db"
 )
+
+
+DEBUG = config("DEBUG", default=False)
+RELEASE_ENV = config("RELEASE_ENV", default="prd")
+if RELEASE_ENV != "prd":
+    DEBUG = False
 
 # Loguru settings
 LOGURU_RETENTION = config("LOGURU_RETENTION", default="10 days")

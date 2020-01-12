@@ -23,9 +23,16 @@ async def access_token(request):
 async def user(request):
     return JSONResponse(
         {
-            "login": "devsetgo",
+            "login": "tomchristie",
             "id": 123,
-            "name": "Mike Ryan",
-            "avatar_url": "https://avatars3.githubusercontent.com/u/16019894?v=4",
+            "name": "Tom Christie",
+            "avatar_url": "https://avatars2.githubusercontent.com/u/647359?s=40&v=4",
         }
     )
+    # {
+    #     "login": "devsetgo",
+    #     "id": 123,
+    #     "name": "Mike Ryan",
+    #     "avatar_url": "https://avatars3.githubusercontent.com/u/16019894?v=4",
+    # }
+    # )
