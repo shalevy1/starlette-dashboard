@@ -3,7 +3,7 @@ from loguru import logger
 from starlette.exceptions import HTTPException
 from resources import templates
 from app_functions.db_setup import users, database
-from endpoints.main.github_calls import get_repo_list, get_user_info
+from endpoints.main.github_calls import get_repo_list, get_user_info, get_user_events
 
 
 async def homepage(request):
@@ -47,6 +47,7 @@ async def profile(request):
 
     repo_data = await get_repo_list(username)
     user_data = await get_user_info(username)
+    user_events = await get_user_events(username)
     status_code = 200
     template = "profile.html"
     context = {
@@ -55,5 +56,6 @@ async def profile(request):
         "profile_user": profile_user,
         "repo_data": repo_data,
         "user_data": user_data,
+        "user_events": user_events,
     }
     return templates.TemplateResponse(template, context, status_code=status_code)
