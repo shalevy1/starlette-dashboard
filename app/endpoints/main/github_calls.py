@@ -12,6 +12,7 @@ async def get_repo_list(user_name: str) -> dict:
         &client_secret={settings.GITHUB_CLIENT_SECRET}&archived=false&per_page=100"
     response = await github_api.get(url)
     # response.raise_for_status()
+    logger.info(f"fetching repo list for {user_name}")
     results = response.json()
     return results
 
