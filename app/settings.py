@@ -7,6 +7,7 @@ environment variables.
 import os
 from starlette.config import Config
 from loguru import logger
+import secrets
 
 # get environment variables
 config = Config(".env")
@@ -23,23 +24,28 @@ LICENSE_LINK = config(
 
 # Application Configurations
 HOST_DOMAIN = config("HOST_DOMAIN", default="https://devsetgo.com")
-
 SQLALCHEMY_DATABASE_URI = config(
     "SQLALCHEMY_DATABASE_URI", default="sqlite:///sqlite_db/starlette_ui.db"
 )
 
-
-DEBUG = config("DEBUG", default=False)
+# set release environment settings
 RELEASE_ENV = config("RELEASE_ENV", default="prd")
-if RELEASE_ENV != "prd":
+
+# Safety check to prevent debug mode or mocking in production
+if RELEASE_ENV == "prd":
     DEBUG = False
+    MOCK_GITHUB = False
+else:
+    DEBUG = config("DEBUG", default=False)
+    MOCK_GITHUB = config("MOCK_GITHUB", cast=bool, default=False)
+
 
 # Loguru settings
 LOGURU_RETENTION = config("LOGURU_RETENTION", default="10 days")
 LOGURU_ROTATION = config("LOGURU_ROTATION", default="10 MB")
 
 # Access Token Settings
-SECRET_KEY = config("SECRET_KEY", default="secret-key-1234567890")
+SECRET_KEY = config("SECRET_KEY", default=secrets.token_hex(24))
 
 # GitHub API
 GITHUB_CLIENT_ID = config("GITHUB_CLIENT_ID", cast=str, default="no-id")
@@ -58,5 +64,3 @@ if GITHUB_CLIENT_SECRET == "no-secret":
     GITHUB_CLIENT_SECRET = os.getenv("GITHUB_CLIENT_SECRET", "not-provded")
     if GITHUB_CLIENT_ID == "not-provded":
         logger.error(f"Github Client ID was not found")
-
-MOCK_GITHUB = config("MOCK_GITHUB", cast=bool, default=False)
