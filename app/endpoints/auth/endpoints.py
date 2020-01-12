@@ -75,6 +75,7 @@ async def callback(request):
     await execute_one_db(query=query, values=values)
 
     request.session["username"] = data["login"]
+    request.session["realname"] = data["name"]
     request.session["avatar_url"] = data["avatar_url"]
     url = request.url_for("profile", username=data["login"])
     return RedirectResponse(url, status_code=303)
