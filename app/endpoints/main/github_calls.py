@@ -2,6 +2,7 @@
 import httpx
 import settings
 from loguru import logger
+import pprint
 
 github_api = httpx.AsyncClient(base_url="https://api.github.com")
 
@@ -31,4 +32,12 @@ async def get_user_info(user_name: str) -> dict:
     response = await github_api.get(url)
     logger.info(f"fetching information for {user_name}")
     results: dict = response.json()
+    return results
+
+
+async def get_user_events(user_name: str) -> dict:
+    url = f"/users/{user_name}/events/public?per_page=100"
+    response = await github_api.get(url)
+    logger.info(f"fetching information for {user_name}")
+    results = response.json()
     return results
