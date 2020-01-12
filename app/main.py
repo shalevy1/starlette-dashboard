@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
 from starlette.applications import Starlette
-from starlette.routing import Mount, Route
+from starlette.routing import Mount, Route, Router
 from resources import init_app
 import settings
 from app_functions import exceptions
 import resources
+from loguru import logger
 from starlette.middleware.sessions import SessionMiddleware
 from starlette.middleware import Middleware
-
+from endpoints.mock_github import endpoints as mock_pages
+from endpoints.mock_github.routes import routes as mock_routes
 from endpoints.auth import endpoints as auth_pages
 from endpoints.main import endpoints as main_pages
 from endpoints.pages import endpoints as pages
@@ -57,6 +59,30 @@ routes = [
     # Mount("/user", routes=user_routes, name='user'),
     # WebSocketRoute("/ws", websocket_endpoint),
 ]
+
+if settings.MOCK_GITHUB:
+    logger.debug(f"mock_github: {settings.MOCK_GITHUB}")
+
+    github_routes = [Mount("/mock_github", routes=mock_routes, name="mock_github")]
+
+    routes += github_routes
+
+    github_client = httpx.AsyncClient(
+        base_url="http://mock", app=Router(routes=mock_routes)
+    )
+    github_api_client = httpx.AsyncClient(
+        base_url="http://mock", app=Router(routes=mock_routes)
+    )
+    GITHUB_AUTH_URL = "/mock_github/login/oauth/authorize"
+else:  # pragma: nocover
+    github_client = httpx.AsyncClient(base_url="https://github.com/")
+    github_api_client = httpx.AsyncClient(
+        base_url="https://api.github.com/",
+        headers={"accept": "application/vnd.github.v3+json"},
+    )
+    GITHUB_AUTH_URL = "https://github.com/login/oauth/authorize"
+
+
 middleware = [Middleware(SessionMiddleware, secret_key=settings.SECRET_KEY)]
 
 exception_handlers = {
@@ -75,29 +101,6 @@ app = Starlette(
     on_startup=[resources.startup],
     on_shutdown=[resources.shutdown],
 )
-
-
-# if settings.MOCK_GITHUB:
-#     routes += [
-#         Mount("/mock_github", routes=github_routes, name='mock_github')
-#     ]
-#     github_client = httpx.AsyncClient(
-#         base_url='http://mock',
-#         app=Router(routes=github_routes)
-#     )
-#     github_api_client = httpx.AsyncClient(
-#         base_url='http://mock',
-#         app=Router(routes=github_routes)
-#     )
-#     GITHUB_AUTH_URL = '/mock_github/login/oauth/authorize'
-
-# else:  # pragma: nocover
-github_client = httpx.AsyncClient(base_url="https://github.com/")
-github_api_client = httpx.AsyncClient(
-    base_url="https://api.github.com/",
-    headers={"accept": "application/vnd.github.v3+json"},
-)
-GITHUB_AUTH_URL = "https://github.com/login/oauth/authorize"
 
 
 if __name__ == "__main__":

@@ -2,12 +2,13 @@
 from app_functions.crud_ops import fetch_one_db, execute_one_db
 from starlette.responses import RedirectResponse
 from starlette.datastructures import URL
-
+from loguru import logger
 from app_functions.db_setup import users
 import settings
 import datetime
 
 
+@logger.catch
 async def login(request):
     from main import GITHUB_AUTH_URL
 
@@ -19,12 +20,14 @@ async def login(request):
     return RedirectResponse(url, status_code=303)
 
 
+@logger.catch
 async def logout(request):
     request.session.clear()
     url = request.url_for("dashboard")
     return RedirectResponse(url, status_code=303)
 
 
+@logger.catch
 async def callback(request):
     from main import github_client, github_api_client
 
@@ -38,6 +41,7 @@ async def callback(request):
     }
     headers = {"accept": "application/json"}
     response = await github_client.post(url, data=data, headers=headers)
+    logger.debug(response.request.url)
     response.raise_for_status()
     data = response.json()
     #  Make a request to the API.
@@ -46,6 +50,7 @@ async def callback(request):
         "authorization": f'token {data["access_token"]}',
     }
     response = await github_api_client.get(url, headers=headers)
+    logger.debug(response.request.url)
     response.raise_for_status()
     data = response.json()
 

@@ -3,7 +3,7 @@ from loguru import logger
 from starlette.exceptions import HTTPException
 from resources import templates
 from app_functions.db_setup import users, database
-from endpoints.main.github_calls import get_repo_list, get_user_info, get_user_events
+from endpoints.main import github_calls
 
 
 async def homepage(request):
@@ -45,9 +45,9 @@ async def profile(request):
     if profile_user is None:
         raise HTTPException(status_code=403)
 
-    repo_data = await get_repo_list(username)
-    user_data = await get_user_info(username)
-    user_events = await get_user_events(username)
+    repo_data = await github_calls.get_repo_list(username)
+    user_data = await github_calls.get_user_info(username)
+    user_events = await github_calls.get_user_events(username)
     status_code = 200
     template = "profile.html"
     context = {

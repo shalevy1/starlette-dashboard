@@ -4,8 +4,9 @@ Most configuration is set via environment variables.
 For local development, use a .env file to set
 environment variables.
 """
-
+import os
 from starlette.config import Config
+from loguru import logger
 
 # get environment variables
 config = Config(".env")
@@ -35,6 +36,21 @@ LOGURU_ROTATION = config("LOGURU_ROTATION", default="10 MB")
 SECRET_KEY = config("SECRET_KEY", default="secret-key-1234567890")
 
 # GitHub API
-GITHUB_CLIENT_ID = config("GITHUB_CLIENT_ID", cast=str, default="")
-GITHUB_CLIENT_SECRET = config("GITHUB_CLIENT_SECRET", cast=str, default="")
+GITHUB_CLIENT_ID = config("GITHUB_CLIENT_ID", cast=str, default="no-id")
+GITHUB_CLIENT_SECRET = config("GITHUB_CLIENT_SECRET", cast=str, default="no-secret")
+
+# Github variables
+# if using docker env variables, you can pass them here and not include in .env file
+if GITHUB_CLIENT_ID == "no-id":
+    logger.info(f"getting Github Client ID from Docker ENV variable")
+    GITHUB_CLIENT_ID = os.getenv("GITHUB_CLIENT_ID", "not-provded")
+    if GITHUB_CLIENT_ID == "not-provded":
+        logger.error(f"Github Client ID was not found")
+
+if GITHUB_CLIENT_SECRET == "no-secret":
+    logger.info(f"getting Github Client Secret from Docker ENV variable")
+    GITHUB_CLIENT_SECRET = os.getenv("GITHUB_CLIENT_SECRET", "not-provded")
+    if GITHUB_CLIENT_ID == "not-provded":
+        logger.error(f"Github Client ID was not found")
+
 MOCK_GITHUB = config("MOCK_GITHUB", cast=bool, default=False)
