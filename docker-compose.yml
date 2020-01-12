@@ -4,7 +4,7 @@ networks:
     external: true
 services:
   srtdash:
-    build: ./app
+    # build: ./app
     image: mikeryan56/starlette-srtdash:19.8.10
     # image: mikeryan56/starlette-srtdash:latest
     restart: always
@@ -13,10 +13,10 @@ services:
     volumes:
     - .:/code
 
-    # if using jwilder/nginx-proxy
-    # environment:
-    # - VIRTUAL_HOST=srtdash.devsetgo.com
-    # - LETSENCRYPT_HOST=srtdash.devsetgo.com
+
+    environment:
+    - GITHUB_CLIENT_ID=your-id-here
+    - GITHUB_CLIENT_SECRET=your-secret-here
 
     #if using traefik
     labels:
