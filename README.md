@@ -88,6 +88,7 @@ python3 -m pytest
   - [x] OAuth via GitHub
   - [x] Mock GITHub Oath
   - [ ] Require Authentication on specified routes
+  - [x] Profile Page to see you repos and other Github data (limited to 100 items)
 
 - [x] Gunicorn/Uvicorn configuration
 - [x] Logging (using [Loguru](https://github.com/Delgan/loguru))
@@ -116,7 +117,7 @@ python3 -m pytest
   - [ ] Explantion of Configuration
 
 ### Screenshots
-coming soon
+
 ![Starlette SRTDashboard](screenshots/image_1.PNG)
 ![Starlette SRTDashboard](screenshots/image_2.PNG)
 ![Starlette SRTDashboard](screenshots/image_3.PNG)
