@@ -15,6 +15,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
     - Use OAuth from Github
     - Mock GitHub OAuth for testing
     - Working on Tests for OAuth
+- Profile Page
+ - Data from your Github public data
 
 ## [19.10.06] - 2019-10-06
 ### Added
