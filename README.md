@@ -9,7 +9,7 @@ CI/CD Pipeline:
 
 [![codecov](https://codecov.io/gh/devsetgo/starlette-dashboard/branch/master/graph/badge.svg)](https://codecov.io/gh/devsetgo/starlette-dashboard)
 [![Actions Status](https://github.com/devsetgo/starlette-dashboard/workflows/Tests/badge.svg)](https://github.com/devsetgo/starlette-dashboard/actions)
-[![Actions Status](https://github.com/devsetgo/starlette-dashboard/workflows/Docker%20Latest/badge.svg)](https://github.com/devsetgo/starlette-dashboard/actions)
+[![Actions Status](https://github.com/devsetgo/starlette-dashboard/workflows/DockerLatest/badge.svg)](https://github.com/devsetgo/starlette-dashboard/actions)
 
 SonarCloud:
 
