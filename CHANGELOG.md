@@ -9,6 +9,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ## [Unreleased]
 - nothing
 
+## [20.01.12] - GitHub Oauth
+### Added
+- Base of [encode/hostedapi](https://github.com/encode/hostedapi)
+    - Use OAuth from Github
+    - Mock GitHub OAuth for testing
+    - Working on Tests for OAuth
+
 ## [19.10.06] - 2019-10-06
 ### Added
 - Tests and file functions
