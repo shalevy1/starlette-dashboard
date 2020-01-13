@@ -77,7 +77,7 @@ python3 -m pytest
 ## TODO
 
 - [x] Create tests
-    - [ ] Minimum of 80%
+    - [x] Minimum of 80% (Goal to maintain - can drop during build cycles)
     - [x] Exception Testing
     - [ ] Mock [requests](https://2.python-requests.org/en/master/) call
 - [x] Better organization
