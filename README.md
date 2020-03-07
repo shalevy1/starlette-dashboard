@@ -87,7 +87,7 @@ python3 -m pytest
 - [x] Access Controls
   - [x] OAuth via GitHub
   - [x] Mock GITHub Oath
-  - [ ] Require Authentication on specified routes
+  - [x] Require Authentication on specified routes
   - [x] Profile Page to see you repos and other Github data (limited to 100 items)
 
 - [x] Gunicorn/Uvicorn configuration
