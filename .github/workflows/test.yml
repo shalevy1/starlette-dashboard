@@ -4,7 +4,6 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-18.04
     strategy:
       matrix:
@@ -24,6 +23,7 @@ jobs:
     - name: Test with pytest
       run: |
         cd app
+        cp .env_sample .env
         python3 -m pytest
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@master
