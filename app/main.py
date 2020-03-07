@@ -1,95 +1,109 @@
 # -*- coding: utf-8 -*-
-import uvicorn
-from loguru import logger
 from starlette.applications import Starlette
-from starlette.config import Config
+from starlette.routing import Mount, Route, Router
+from resources import init_app
+import settings
+from app_functions import exceptions
+import resources
+from loguru import logger
+from starlette.middleware.sessions import SessionMiddleware
+from starlette.middleware import Middleware
+from endpoints.mock_github import endpoints as mock_pages
+from endpoints.mock_github.routes import routes as mock_routes
+from endpoints.auth import endpoints as auth_pages
+from endpoints.main import endpoints as main_pages
+from endpoints.pages import endpoints as pages
 from starlette.staticfiles import StaticFiles
-from starlette.templating import Jinja2Templates
+import httpx
 
-from com_lib.logging_config import config_logging
-from db_setup import create_db
-from routes import routes
+routes = [
+    Route("/", main_pages.homepage, name="dashboard", methods=["GET"]),
+    Route("/{username}", main_pages.profile, name="profile", methods=["GET", "POST"]),
+    Route("/index/{page}", main_pages.homepage_page, methods=["GET"]),
+    Mount(
+        "/auth",
+        routes=[
+            Route("/login", endpoint=auth_pages.login, methods=["POST"]),
+            Route("/logout", endpoint=auth_pages.logout, methods=["POST"]),
+            Route("/callback", endpoint=auth_pages.callback, methods=["GET"]),
+        ],
+        name="auth",
+    ),
+    Mount(
+        "/pages",
+        routes=[
+            Route("/{page}", endpoint=pages.example_pages, methods=["GET"]),
+            Route(
+                "/charts/{page}", endpoint=pages.example_pages_charts, methods=["GET"]
+            ),
+            Route(
+                "/examples/{page}",
+                endpoint=pages.example_pages_examples,
+                methods=["GET"],
+            ),
+            Route("/forms/{page}", endpoint=pages.example_pages_forms, methods=["GET"]),
+            Route(
+                "/mailbox/{page}", endpoint=pages.example_pages_mailbox, methods=["GET"]
+            ),
+            Route(
+                "/data_tables/{page}",
+                endpoint=pages.example_pages_tables,
+                methods=["GET"],
+            ),
+            Route("/ui/{page}", endpoint=pages.example_pages_ui, methods=["GET"]),
+        ],
+        name="pages",
+    ),
+    Mount("/static", app=StaticFiles(directory="statics"), name="static"),
+    # Mount("/static", statics, name="static"),
+    # Mount("/user", routes=user_routes, name='user'),
+    # WebSocketRoute("/ws", websocket_endpoint),
+]
 
-config = Config(".env")
-logger.info("Logging initiated")
+if settings.MOCK_GITHUB:
+    logger.debug(f"mock_github: {settings.MOCK_GITHUB}")
 
-app_env = config("RELEASE_ENV", default="prd")
+    github_routes = [Mount("/mock_github", routes=mock_routes, name="mock_github")]
 
-debug_mode = False
+    routes += github_routes
 
-if app_env == "dev":
-    debug_mode = True
-
-# initialize logging
-config_logging()
-# create database
-create_db()
-logger.info("Databasee initiated")
-
-app = Starlette(debug=True)  # , exception_handlers=exception_handlers)
-logger.info("Application initiated")
-
-# templates and static files
-templates = Jinja2Templates(directory="templates")
-app.mount("/static", StaticFiles(directory="statics"), name="static")
-
-# all routes for all pages
-app.mount("/", routes)
-
-
-@app.on_event("startup")
-def startup():
-
-    logger.info("Applicaton started")
-    logger.info(f"Debug Mode set to {debug_mode}")
-
-
-@app.on_event("shutdown")
-async def shutdown():
-    logger.info("Applicaton shutdown")
-
-
-@app.route("/error")
-async def error(request):
-    """
-    An example error. Switch the `debug` setting to see either tracebacks or 500 pages.
-    """
-    raise RuntimeError("Oh no")
-
-
-@app.exception_handler(403)
-async def forbidden_403(request, exc):
-    print(request, exc)
-    """
-    Return an HTTP 403 page.
-    """
-    template = "/error/403.html"
-    context = {"request": request}
-    return templates.TemplateResponse(template, context, status_code=403)
-
-
-@app.exception_handler(404)
-async def not_found_404(request, exc):
-    print(request, exc)
-    """
-    Return an HTTP 404 page.
-    """
-    template = "/error/404.html"
-    context = {"request": request}
-    return templates.TemplateResponse(template, context, status_code=404)
+    github_client = httpx.AsyncClient(
+        base_url="http://mock", app=Router(routes=mock_routes)
+    )
+    github_api_client = httpx.AsyncClient(
+        base_url="http://mock", app=Router(routes=mock_routes)
+    )
+    GITHUB_AUTH_URL = "/mock_github/login/oauth/authorize"
+else:  # pragma: nocover
+    github_client = httpx.AsyncClient(base_url="https://github.com/")
+    github_api_client = httpx.AsyncClient(
+        base_url="https://api.github.com/",
+        headers={"accept": "application/vnd.github.v3+json"},
+    )
+    GITHUB_AUTH_URL = "https://github.com/login/oauth/authorize"
 
 
-@app.exception_handler(500)
-async def server_error(request, exc):
-    print(request, exc)
-    """
-    Return an HTTP 500 page.
-    """
-    template = "/error/500.html"
-    context = {"request": request}
-    logger.critical(context, exc)
-    return templates.TemplateResponse(template, context, status_code=500)
+middleware = [Middleware(SessionMiddleware, secret_key=settings.SECRET_KEY)]
+
+exception_handlers = {
+    403: exceptions.not_allowed,
+    404: exceptions.not_found,
+    500: exceptions.server_error,
+}
+
+init_app()
+
+app = Starlette(
+    debug=settings.DEBUG,
+    routes=routes,
+    middleware=middleware,
+    exception_handlers=exception_handlers,
+    on_startup=[resources.startup],
+    on_shutdown=[resources.shutdown],
+)
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=5000, log_level="info")
+    import uvicorn
+
+    uvicorn.run(app, host="0.0.0.0", port=5000, log_level="info", debug=settings.DEBUG)

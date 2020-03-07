@@ -3,18 +3,18 @@ from loguru import logger
 from starlette.applications import Starlette
 from starlette.exceptions import HTTPException
 from starlette.staticfiles import StaticFiles
-from starlette.templating import Jinja2Templates
+from resources import templates
 
 app = Starlette()
-templates = Jinja2Templates(directory="templates")
 app.mount("/static", StaticFiles(directory="statics"), name="static")
 
 detail = "page note found"
 
 
 async def example_pages(request):
-    html_page = request.path_params["page"]
     try:
+        html_page = request.path_params["page"]
+        print(html_page)
         template = f"/pages/{html_page}.html"
         context = {"request": request}
         logger.info(f"page accessed: {template}")

@@ -4,7 +4,7 @@ import uuid
 
 from starlette.testclient import TestClient
 
-from app.main import app
+from main import app
 
 client = TestClient(app)
 

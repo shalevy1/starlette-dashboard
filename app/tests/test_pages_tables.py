@@ -4,7 +4,7 @@ import uuid
 
 from starlette.testclient import TestClient
 
-from app.main import app
+from main import app
 
 client = TestClient(app)
 
@@ -14,14 +14,14 @@ class Test(unittest.TestCase):
         pages = ["data", "jsgrid", "simple"]
 
         for page in pages:
-            url = f"/pages/tables/{page}"
+            url = f"/pages/data_tables/{page}"
             client = TestClient(app)
             response = client.get(url)
             assert response.status_code == 200
 
     def test_pages_tables_error(self):
         uid = uuid.uuid1()
-        url = f"/pages/tables/{uid}"
+        url = f"/pages/data_tables/{uid}"
         client = TestClient(app)
         response = client.get(url)
         assert response.status_code == 404

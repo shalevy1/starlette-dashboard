@@ -8,8 +8,8 @@ Python:
 CI/CD Pipeline:
 
 [![codecov](https://codecov.io/gh/devsetgo/starlette-dashboard/branch/master/graph/badge.svg)](https://codecov.io/gh/devsetgo/starlette-dashboard)
-[![Actions Status](https://github.com/devsetgo/starlette-dashboard/workflows/Run%20Tests/badge.svg)](https://github.com/devsetgo/starlette-dashboard/actions)
-[![Actions Status](https://github.com/devsetgo/starlette-dashboard/workflows/Docker%20Latest/badge.svg)](https://github.com/devsetgo/starlette-dashboard/actions)
+[![Actions Status](https://github.com/devsetgo/starlette-dashboard/workflows/Tests/badge.svg)](https://github.com/devsetgo/starlette-dashboard/actions)
+[![Actions Status](https://github.com/devsetgo/starlette-dashboard/workflows/DockerLatest/badge.svg)](https://github.com/devsetgo/starlette-dashboard/actions)
 
 SonarCloud:
 
@@ -76,17 +76,19 @@ python3 -m pytest
 
 ## TODO
 
-- [ ] Create tests
-    - [ ] Minimum of 80%
-    - [ ] Exception Testing
+- [x] Create tests
+    - [x] Minimum of 80% (Goal to maintain - can drop during build cycles)
+    - [x] Exception Testing
     - [ ] Mock [requests](https://2.python-requests.org/en/master/) call
 - [x] Better organization
     - [x] Use of Endpoints (equivalent to Flask Blueprints) - starlette routes and endpoint (/app/routes)
 - [x] Configuration Scripts
 
-- [ ] Access Controls
-  - [ ] Add Access controls
-  - [ ] Signup functionality
+- [x] Access Controls
+  - [x] OAuth via GitHub
+  - [x] Mock GITHub Oath
+  - [x] Require Authentication on specified routes
+  - [x] Profile Page to see you repos and other Github data (limited to 100 items)
 
 - [x] Gunicorn/Uvicorn configuration
 - [x] Logging (using [Loguru](https://github.com/Delgan/loguru))
@@ -94,11 +96,11 @@ python3 -m pytest
     - [x] [SonarCloud](https://sonarcloud.io)
     - [x] [Github Actions](https://github.com/features/actions) found in .github/workflow/actions
         - [x] tests - matrix run of Python 3.6 and 3.7
-            - [ ] CodeCove.io upload
+            - [x] CodeCove.io upload
         - [x] docker-rc - docker build and push when pull request approved for release-candidate branch (calendar version - rc)
         - [x] docker-master - docker build and push when pull request approved for master branch (calender version and latest)
         - [x] ensure docker build only happens after pull_request approved and merged into higher branch
-- [ ] [Twelve Factor App](https://12factor.net/) ready
+- [x] [Twelve Factor App](https://12factor.net/) ready
 - [ ] Build a [cookiecutter](https://github.com/audreyr/cookiecutter) template for
 - [ ] Add code comments
 - [ ] Websocket example
@@ -115,7 +117,7 @@ python3 -m pytest
   - [ ] Explantion of Configuration
 
 ### Screenshots
-coming soon
+
 ![Starlette SRTDashboard](screenshots/image_1.PNG)
 ![Starlette SRTDashboard](screenshots/image_2.PNG)
 ![Starlette SRTDashboard](screenshots/image_3.PNG)

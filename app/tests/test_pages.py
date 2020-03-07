@@ -4,7 +4,7 @@ import uuid
 
 from starlette.testclient import TestClient
 
-from app.main import app
+from main import app
 
 client = TestClient(app)
 
@@ -20,7 +20,7 @@ class Test(unittest.TestCase):
             assert response.status_code == 200
 
     def test_pages_error(self):
-        uid = uuid.uuid1()
+        uid = uuid.uuid4()
         url = f"/pages/{uid}"
         client = TestClient(app)
         response = client.get(url)
