@@ -8,7 +8,6 @@ import resources
 from loguru import logger
 from starlette.middleware.sessions import SessionMiddleware
 from starlette.middleware import Middleware
-from endpoints.mock_github import endpoints as mock_pages
 from endpoints.mock_github.routes import routes as mock_routes
 from endpoints.auth import endpoints as auth_pages
 from endpoints.main import endpoints as main_pages
