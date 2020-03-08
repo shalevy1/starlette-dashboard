@@ -2,8 +2,9 @@
 .env
 settings.json
 scratch_pad/
-.vscode
+.vscode/
 venv/
+_venv/
 flake8_report/
 
 # Byte-compiled / optimized / DLL files

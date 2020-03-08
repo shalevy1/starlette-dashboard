@@ -5,9 +5,26 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## Todo
 - Document Process (blog entry)
+- Increase test coverage
+- Add tests for authentication
 
 ## [Unreleased]
 - nothing
+
+
+## [20.03.07] - GitHub Oauth Docker
+### Added
+- Update of Dockerfile and Docker-Compose for passing ENV variables
+- Update of login button for Github icon
+
+## [20.01.12] - GitHub Oauth
+### Added
+- Base of [encode/hostedapi](https://github.com/encode/hostedapi)
+    - Use OAuth from Github
+    - Mock GitHub OAuth for testing
+    - Working on Tests for OAuth
+- Profile Page
+ - Data from your Github public data
 
 ## [19.10.06] - 2019-10-06
 ### Added
