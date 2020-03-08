@@ -22,9 +22,9 @@ SonarCloud:
 
 # Starlette - Dashboard Template (pre-release)
 
-Note: The template has thousands of issues according to SonarCloud. All are due to template issues and issues within JavaScript for UI dependencies. Working on determining a way to solve these issues.
+Note: The AdminLTE 3.0 template has thousands of issues according to SonarCloud. All are due to template issues and issues within JavaScript for UI dependencies. Working on determining a way to solve these issues or frankly just ignore them.
 
-Utilizing Starlette to render the [Sufee Admin](https://github.com/devsetgo/sufee-admin-dashboard) template. This is a basic example to be used as the base/skeleton/template for Starlette applciations.
+Utilizing [Starlette](https://www.starlette.io/) to render the [AdminLTE 3.0](https://adminlte.io/) template. This is a basic example to be used as the base/skeleton/template for Starlette applciations.
 
 ![Starlette Dashboard](screenshots/image_1.PNG)
 
@@ -33,19 +33,31 @@ Utilizing Starlette to render the [Sufee Admin](https://github.com/devsetgo/sufe
 - create a virtualenv on linux or Windows Subsystem Linux
 
 #### Run APP
-First Change directory to app
+First Change directory to 'app'
+
+Update .env file with your settings
+~~~~
+cp .env_sample .env
+~~~~
+Or use [docker image](https://hub.docker.com/repository/docker/mikeryan56/starlette-dashboard/tags?page=1)
+~~~~
+docker run mikeryan56/starlette-dashboard:latest
+~~~~
+
 
 UVICORN
-    Development:
+    Run Development (pick one):
 ~~~~
     uvicorn main:app --port 5000 --reload
     python3 main.py
+    ./scripts/dev_run.sh
 ~~~~
-    Production:
+    Run Production (pick one):
 ~~~~
     uvicorn main:app --workers 2 --port 5000
     gunicorn -c gunicorn_cfg.py main:app
     # Note: gunicorn is the config for the dockerfile
+    ./script/prd_run.sh
 ~~~~
 
 Docker
@@ -56,14 +68,17 @@ Docker
 #### Run Tests
 ~~~~
 python3 -m pytest
+./scripts/tests.sh
 ~~~~
 
 #### Create coverage badge
+not needed if tests run from ./scripts/tests.sh
 ~~~~
     coverage-badge -o coverage.svg -f
 ~~~~
 
 #### Pre-Commit & Hooks
+Not needed if ./scripts/tests.sh is run. It will install and update.
 ~~~~
     - Follow install instructionsL: [https://pre-commit.com/#install](https://pre-commit.com/#install)
     - pre-commit install

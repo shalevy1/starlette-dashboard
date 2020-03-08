@@ -11,6 +11,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ## [Unreleased]
 - nothing
 
+
+## [20.03.07] - GitHub Oauth Docker
+### Added
+- Update of Dockerfile and Docker-Compose for passing ENV variables
+- Update of login button for Github icon
+
 ## [20.01.12] - GitHub Oauth
 ### Added
 - Base of [encode/hostedapi](https://github.com/encode/hostedapi)
