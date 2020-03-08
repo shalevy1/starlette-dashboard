@@ -18,7 +18,7 @@ services:
     - GITHUB_CLIENT_ID=your-id-here
     - GITHUB_CLIENT_SECRET=your-secret-here
     # Application information
-    - APP_VERSION='2020.01.05'
+    - APP_VERSION='20.03.07'
     - OWNER='your name'
     - WEBSITE='https://yoursite.com/support'
     # Application Configuration
