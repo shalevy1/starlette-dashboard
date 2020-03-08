@@ -11,9 +11,11 @@ import secrets
 
 # get environment variables
 config = Config(".env")
-USE_ENV = config("USE_ENV",default="docker")
+USE_ENV = config("USE_ENV", default="dotenv")
+
 # Application information
-if USE_ENV.lower()=="dotenv":
+if USE_ENV.lower() == "dotenv":
+    logger.info(f"external configuration is for use with {USE_ENV.lower()}")
     # dotenv variables
     APP_VERSION = config("APP_VERSION", default="1.0.0")
     OWNER = config("OWNER", default="Mike Ryan")
@@ -40,7 +42,6 @@ if USE_ENV.lower()=="dotenv":
         DEBUG = config("DEBUG", default=False)
         MOCK_GITHUB = config("MOCK_GITHUB", cast=bool, default=False)
 
-
     # Loguru settings
     LOGURU_RETENTION = config("LOGURU_RETENTION", default="10 days")
     LOGURU_ROTATION = config("LOGURU_ROTATION", default="10 MB")
@@ -61,7 +62,8 @@ if USE_ENV.lower()=="dotenv":
         logger.info(f"getting Github Client Secret from Docker ENV variable")
 
 else:
-    # dotenv variables
+    logger.info(f"external configuration is for use with {USE_ENV.lower()}")
+    # docker variables
     APP_VERSION = os.environ["APP_VERSION"]
 
     OWNER = os.environ["OWNER"]
@@ -84,7 +86,6 @@ else:
         DEBUG = os.environ["DEBUG"]
         MOCK_GITHUB = os.environ["MOCK_GITHUB"]
 
-
     # Loguru settings
     LOGURU_RETENTION = os.environ["LOGURU_RETENTION"]
     LOGURU_ROTATION = os.environ["LOGURU_ROTATION"]
@@ -100,7 +101,7 @@ else:
     # if using docker env variables, you can pass them here and not include in .env file
     # if GITHUB_CLIENT_ID == "no-id":
     #     logger.info(f"getting Github Client ID from Docker ENV variable")
-        
+
     # if GITHUB_CLIENT_SECRET == "no-secret":
     #     logger.info(f"getting Github Client Secret from Docker ENV variable")
     #     GITHUB_CLIENT_SECRET = os.getenv("GITHUB_CLIENT_SECRET", "not-provded")
