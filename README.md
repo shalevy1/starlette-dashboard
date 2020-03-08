@@ -18,7 +18,7 @@ SonarCloud:
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=devsetgo_starlette-dashboard&metric=alert_status)](https://sonarcloud.io/dashboard?id=devsetgo_starlette-dashboard)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=devsetgo_starlette-dashboard&metric=bugs)](https://sonarcloud.io/dashboard?id=devsetgo_starlette-dashboard)
 
-<a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
+
 
 # Starlette - Dashboard Template (pre-release)
 

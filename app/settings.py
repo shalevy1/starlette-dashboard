@@ -11,7 +11,7 @@ import secrets
 
 # get environment variables
 config = Config(".env")
-USE_ENV = config("USE_ENV", default="dotenv")
+USE_ENV = config("USE_ENV", default="docker")
 
 # Application information
 if USE_ENV.lower() == "dotenv":
