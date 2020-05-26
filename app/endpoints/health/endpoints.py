@@ -13,5 +13,5 @@ async def health_status(request):
     """
     Application status endpoint with response of UP
     """
-    logger.info(f'health accessed')
-    return JSONResponse({'status': 'UP'})
+    logger.info(f"health accessed")
+    return JSONResponse({"status": "UP"})

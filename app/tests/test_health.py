@@ -10,7 +10,6 @@ client = TestClient(app)
 
 
 class Test(unittest.TestCase):
-
     def test_health_pages(self):
         pages = ["status"]
 
